@@ -1,0 +1,10 @@
+{
+  "game": "Powerball",
+  "drawDate": null,
+  "numbers": [],
+  "specialBall": null,
+  "specialBallName": "Powerball",
+  "jackpot": null,
+  "nextDrawDate": null,
+  "note": "Placeholder — populated by the Stage 3 GitHub Actions pipeline pulling from data.ny.gov."
+}

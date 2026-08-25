@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import casinos from '../../data/casinos.json';
+---
+
+<BaseLayout
+  title="Sweepstakes Casino Reviews"
+  description="Independent reviews of the top legal sweepstakes casinos available in the U.S., covering redemption speed, payment methods, and state availability."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Casino Reviews</p>
+      <h1>Sweepstakes casino reviews</h1>
+      <p>
+        We review sweepstakes casinos on redemption speed, payment methods, game selection, and
+        state availability. See our <a href="/casinos/best-sweepstakes-casinos/">current top picks</a>
+        or check the <a href="/casinos/legal-by-state/">legal status in your state</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>All reviews</h2>
+      <div class="grid-cards">
+        {casinos.map((c) => (
+          <a class="card" href={`/casinos/reviews/${c.slug}/`}>
+            <h3>{c.name}</h3>
+            <p>{c.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

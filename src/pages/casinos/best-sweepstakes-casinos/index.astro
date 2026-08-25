@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import casinos from '../../../data/casinos.json';
+---
+
+<BaseLayout
+  title="Best Sweepstakes Casinos"
+  description="Our current ranked picks for the best legal sweepstakes casinos in the U.S., compared on redemption speed, game selection, and state availability."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Casino Reviews</p>
+      <h1>Best sweepstakes casinos</h1>
+      <p>
+        Ranked by redemption speed, game selection, and state availability. Updated as legality
+        and promotions change &mdash; see our <a href="/lottery/">lottery results</a> or the
+        <a href="/casinos/legal-by-state/">legal-by-state guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <ol style="list-style: none; padding: 0; display: grid; gap: 1rem;">
+        {casinos.map((c, i) => (
+          <li class="card" style="display: flex; gap: 1rem; align-items: baseline;">
+            <span style="font-weight: 800; font-size: 1.3rem; color: var(--color-primary);">#{i + 1}</span>
+            <div>
+              <h3><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a></h3>
+              <p>{c.summary}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="disclaimer-banner">
+        Rankings reflect our editorial judgment based on published reviews. Some links may be
+        affiliate links &mdash; see our <a href="/editorial-policy/">editorial policy</a>.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

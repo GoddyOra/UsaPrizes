@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import results from '../../../data/lottery/mega-millions.json';
+---
+
+<BaseLayout
+  title="Mega Millions Winning Numbers & Results"
+  description="Latest Mega Millions winning numbers, jackpot amount, and next drawing date."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Lottery &rsaquo; Mega Millions</p>
+      <h1>Mega Millions results</h1>
+      <p>Drawings are held every Tuesday and Friday at 11:00 p.m. ET.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      {results.drawDate ? (
+        <div class="card" style="max-width: 480px;">
+          <h3>Draw date: {results.drawDate}</h3>
+          <p>Numbers: {results.numbers.join(' - ')} | {results.specialBallName}: {results.specialBall}</p>
+          <p>Jackpot: {results.jackpot}</p>
+          <p>Next drawing: {results.nextDrawDate}</p>
+        </div>
+      ) : (
+        <p>Results are loading. The automated pipeline (Stage 3) will populate this page after the next drawing.</p>
+      )}
+
+      <div class="disclaimer-banner">
+        USAPrizes.com is not affiliated with the Multi-State Lottery Association or any state
+        lottery. Numbers are sourced from public data feeds and provided for informational
+        purposes only &mdash; always verify against your official state lottery before claiming
+        a prize.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,9 @@
+[
+  { "slug": "chumba", "name": "Chumba Casino", "summary": "One of the longest-running sweepstakes casinos, known for a large slot library." },
+  { "slug": "pulsz", "name": "Pulsz Casino", "summary": "Sweepstakes casino with a straightforward Gold Coin / Sweeps Coin model." },
+  { "slug": "wow-vegas", "name": "WOW Vegas", "summary": "Newer sweepstakes casino with frequent daily bonus coin promotions." },
+  { "slug": "mcluck", "name": "McLuck", "summary": "Sweepstakes casino with a fast-growing slot and table game catalog." },
+  { "slug": "stake-us", "name": "Stake.us", "summary": "Sweepstakes platform from the Stake brand, with crypto-friendly redemption." },
+  { "slug": "luckyland", "name": "LuckyLand Slots", "summary": "Mobile-first sweepstakes casino focused on slot games." },
+  { "slug": "fortune-coins", "name": "Fortune Coins", "summary": "Sweepstakes casino with a rewards-club structure for regular players." }
+]

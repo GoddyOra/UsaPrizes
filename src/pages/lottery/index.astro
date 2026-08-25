@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const games = [
+  { slug: 'powerball', name: 'Powerball', desc: 'Drawings every Monday, Wednesday, and Saturday.' },
+  { slug: 'mega-millions', name: 'Mega Millions', desc: 'Drawings every Tuesday and Friday.' },
+];
+---
+
+<BaseLayout
+  title="Lottery Results by Game and State"
+  description="Winning numbers for Powerball, Mega Millions, and state lottery games, updated after every drawing."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Lottery Results</p>
+      <h1>Lottery results</h1>
+      <p>Winning numbers for the multi-state games, plus individual state lotteries as we add them.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Multi-state games</h2>
+      <div class="grid-cards">
+        {games.map((g) => (
+          <a class="card" href={`/lottery/${g.slug}/`}>
+            <h3>{g.name}</h3>
+            <p>{g.desc}</p>
+          </a>
+        ))}
+      </div>
+
+      <h2>State lotteries</h2>
+      <p>Coming soon: Texas, Florida, New York, Pennsylvania, Ohio, Georgia, North Carolina, Michigan, New Jersey, and more.</p>
+    </div>
+  </section>
+</BaseLayout>

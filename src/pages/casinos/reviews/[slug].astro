@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import casinos from '../../../data/casinos.json';
+
+export function getStaticPaths() {
+  return casinos.map((c) => ({
+    params: { slug: c.slug },
+    props: { casino: c },
+  }));
+}
+
+const { casino } = Astro.props;
+---
+
+<BaseLayout
+  title={`${casino.name} Review`}
+  description={`${casino.name} review: redemption speed, payment methods, state availability, and promo code.`}
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Casino Reviews</p>
+      <h1>{casino.name} review</h1>
+      <p>{casino.summary}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <p><em>Full review in progress — pros/cons, redemption speed, payment methods, state
+      availability, and promo code will be added here per the Stage 4 review template. Legal
+      status is verified at publish time and re-checked on every refresh.</em></p>
+
+      <h2>At a glance</h2>
+      <ul>
+        <li><strong>Pros:</strong> TBD</li>
+        <li><strong>Cons:</strong> TBD</li>
+        <li><strong>Redemption speed:</strong> TBD</li>
+        <li><strong>Payment methods:</strong> TBD</li>
+        <li><strong>State availability:</strong> TBD &mdash; see <a href="/casinos/legal-by-state/">legal by state</a></li>
+        <li><strong>Promo code:</strong> TBD</li>
+      </ul>
+
+      <div class="disclaimer-banner">
+        Affiliate disclosure: some links on this page may be affiliate links. If you sign up
+        through them we may earn a commission, at no cost to you. This never affects our rating.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

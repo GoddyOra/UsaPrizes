@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const siteName = 'USA Prizes';
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | {siteName}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">USA<span>Prizes</span></a>
+        <nav class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="/lottery/">Lottery Results</a></li>
+            <li><a href="/casinos/">Casino Reviews</a></li>
+            <li><a href="/casinos/best-sweepstakes-casinos/">Best Sweepstakes Casinos</a></li>
+            <li><a href="/guides/">Guides</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <h4>Lottery</h4>
+            <ul>
+              <li><a href="/lottery/powerball/">Powerball Results</a></li>
+              <li><a href="/lottery/mega-millions/">Mega Millions Results</a></li>
+              <li><a href="/lottery/">All Lottery Results</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Casinos</h4>
+            <ul>
+              <li><a href="/casinos/best-sweepstakes-casinos/">Best Sweepstakes Casinos</a></li>
+              <li><a href="/casinos/legal-by-state/">Legal By State</a></li>
+              <li><a href="/casinos/">All Casino Reviews</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/editorial-policy/">Editorial Policy</a></li>
+              <li><a href="/guides/">Guides</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/disclaimer/">Disclaimer</a></li>
+              <li><a href="/privacy-policy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Use</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="responsible-gaming">
+          <p>
+            <strong>18+ (21+ where required by law).</strong> USAPrizes.com is an independent
+            informational and review site. We are not affiliated with any state lottery
+            commission, and we do not operate, host, or offer real-money gambling, sweepstakes
+            entries, or lottery tickets. Sweepstakes casinos featured on this site use a
+            promotional sweepstakes model that is legally distinct from real-money online
+            gambling; availability and legality vary by state and can change &mdash; always
+            confirm current terms directly with the operator before playing. If gambling stops
+            being fun, free and confidential help is available 24/7 from the National Problem
+            Gambling Helpline: call or text 1-800-522-4700.
+          </p>
+          <p>&copy; {year} USAPrizes.com. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

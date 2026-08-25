@@ -1,17 +1,75 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Lottery Results & Sweepstakes Casino Reviews"
+  description="Fast, accurate Powerball and Mega Millions results plus independent, up-to-date reviews of the top legal sweepstakes casinos in the U.S."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">USA Prizes</p>
+      <h1>Lottery results and sweepstakes casino reviews, kept current</h1>
+      <p>
+        Winning numbers for Powerball and Mega Millions, updated automatically after every
+        drawing, alongside independent reviews of the sweepstakes casinos legally available in
+        your state.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Lottery</p>
+      <h2>Latest draw results</h2>
+      <div class="grid-cards">
+        <a class="card" href="/lottery/powerball/">
+          <h3>Powerball</h3>
+          <p>Winning numbers, jackpot size, and next drawing date.</p>
+        </a>
+        <a class="card" href="/lottery/mega-millions/">
+          <h3>Mega Millions</h3>
+          <p>Winning numbers, jackpot size, and next drawing date.</p>
+        </a>
+        <a class="card" href="/lottery/">
+          <h3>All lottery results &rarr;</h3>
+          <p>Browse results by game and by state.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="wrap">
+      <p class="eyebrow">Casino Reviews</p>
+      <h2>Sweepstakes casinos, reviewed honestly</h2>
+      <div class="grid-cards">
+        <a class="card" href="/casinos/best-sweepstakes-casinos/">
+          <h3>Best Sweepstakes Casinos &rarr;</h3>
+          <p>Our current top picks, ranked and compared.</p>
+        </a>
+        <a class="card" href="/casinos/legal-by-state/">
+          <h3>Legal By State</h3>
+          <p>Where sweepstakes casinos are and aren't available.</p>
+        </a>
+        <a class="card" href="/casinos/">
+          <h3>All reviews &rarr;</h3>
+          <p>Browse every brand we cover.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Guides</p>
+      <h2>Learn the basics</h2>
+      <div class="grid-cards">
+        <a class="card" href="/guides/">
+          <h3>All guides &rarr;</h3>
+          <p>How sweepstakes casinos work, redemption tips, and more.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
