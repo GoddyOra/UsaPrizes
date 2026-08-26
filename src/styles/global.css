@@ -168,6 +168,40 @@ main {
   margin-bottom: 2rem;
 }
 
+.verdict-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.verdict-block .rating {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+
+table.at-a-glance {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table.at-a-glance th,
+table.at-a-glance td {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+table.at-a-glance th {
+  width: 32%;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
 .disclaimer-banner {
   background: #fff7e6;
   border: 1px solid #f0d38a;

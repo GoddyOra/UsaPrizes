@@ -1,9 +1,283 @@
 [
-  { "slug": "chumba", "name": "Chumba Casino", "summary": "One of the longest-running sweepstakes casinos, known for a large slot library." },
-  { "slug": "pulsz", "name": "Pulsz Casino", "summary": "Sweepstakes casino with a straightforward Gold Coin / Sweeps Coin model." },
-  { "slug": "wow-vegas", "name": "WOW Vegas", "summary": "Newer sweepstakes casino with frequent daily bonus coin promotions." },
-  { "slug": "mcluck", "name": "McLuck", "summary": "Sweepstakes casino with a fast-growing slot and table game catalog." },
-  { "slug": "stake-us", "name": "Stake.us", "summary": "Sweepstakes platform from the Stake brand, with crypto-friendly redemption." },
-  { "slug": "luckyland", "name": "LuckyLand Slots", "summary": "Mobile-first sweepstakes casino focused on slot games." },
-  { "slug": "fortune-coins", "name": "Fortune Coins", "summary": "Sweepstakes casino with a rewards-club structure for regular players." }
+  {
+    "slug": "chumba",
+    "name": "Chumba Casino",
+    "summary": "One of the longest-running sweepstakes casinos, known for a large slot library.",
+    "rating": 4.3,
+    "verdict": "Chumba is one of the most established sweepstakes casinos in the US, with a large slot catalog and a straightforward Gold Coin / Sweeps Coin model. Redemption is reliable but not instant for most methods, and its no-purchase-necessary bonus is genuinely free to claim.",
+    "pros": [
+      "Large, well-reviewed slot library",
+      "No purchase necessary to claim the welcome bonus",
+      "Multiple redemption methods, including a prepaid Mastercard option",
+      "Long operating history compared to newer sweepstakes casinos"
+    ],
+    "cons": [
+      "Not available in every state",
+      "Bank transfer redemptions can take several business days",
+      "First-time redemptions require identity verification, adding delay"
+    ],
+    "bonusOffer": "2,000,000 Gold Coins + 2 Sweeps Coins on signup",
+    "promoCode": null,
+    "redemptionSpeed": "Varies by method: the Chumba Prepaid Mastercard is near-instant, gift cards process in about 24 hours, Skrill and Trustly average around 2 business days, and standard bank transfers can take 3-7 business days. First-time redemptions add up to 48 hours for identity verification.",
+    "paymentMethods": [
+      "Visa / Mastercard / American Express / Discover",
+      "Skrill",
+      "Apple Pay",
+      "Trustly (ACH bank transfer)",
+      "Paysafecard"
+    ],
+    "faq": [
+      {
+        "question": "Is Chumba Casino legal in my state?",
+        "answer": "Chumba operates as a sweepstakes casino, which is legally distinct from real-money online gambling and is available in most, but not all, states. Check our legal-by-state page for the current list before signing up."
+      },
+      {
+        "question": "Does Chumba Casino have a promo code?",
+        "answer": "No. The welcome bonus (Gold Coins plus Sweeps Coins) is credited automatically on signup with no purchase and no promo code required."
+      },
+      {
+        "question": "How long does it take to redeem winnings at Chumba?",
+        "answer": "It depends on the method you choose. The prepaid Mastercard option is close to instant, gift cards take about a day, and bank-based methods can take several business days, with an extra verification step on your first redemption."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "pulsz",
+    "name": "Pulsz Casino",
+    "summary": "Sweepstakes casino with a straightforward Gold Coin / Sweeps Coin model.",
+    "rating": 4.0,
+    "verdict": "Pulsz keeps its Gold Coin / Sweeps Coin model simple and offers several redemption paths, though the free no-code welcome bonus is modest compared to some competitors' headline offers. Promotional codes circulate frequently for a larger bonus.",
+    "pros": [
+      "Simple, easy-to-understand Gold Coin / Sweeps Coin structure",
+      "Multiple redemption methods: ACH, Trustly, Skrill, or gift cards via Prizeout",
+      "Promotional codes circulate regularly for larger bonuses"
+    ],
+    "cons": [
+      "The base no-code welcome bonus is smaller than several competitors'",
+      "Requires a 1x playthrough and a 10 SC minimum before redeeming",
+      "Redemptions can take up to about 5 days, longer for bank-based methods"
+    ],
+    "bonusOffer": "5,000 Gold Coins + 2.3 Sweeps Coins on signup, no purchase necessary",
+    "promoCode": null,
+    "redemptionSpeed": "Redemptions typically process within about 5 days; bank-based methods (ACH/Trustly) can run 1-10 business days. A minimum of 10 eligible Sweeps Coins, a 1x playthrough, and identity verification are required before redeeming.",
+    "paymentMethods": [
+      "ACH / Online banking",
+      "Trustly",
+      "Skrill",
+      "Gift cards (via Prizeout)"
+    ],
+    "faq": [
+      {
+        "question": "Is Pulsz Casino legal in my state?",
+        "answer": "Pulsz operates as a sweepstakes casino, legally distinct from real-money gambling, and is available in most but not all states. Check our legal-by-state page for the current list."
+      },
+      {
+        "question": "Does Pulsz have a promo code?",
+        "answer": "The base welcome bonus needs no code. Promotional codes for a larger bonus circulate periodically — check Pulsz's own site for what's currently active before relying on a code from a third party."
+      },
+      {
+        "question": "How long does it take to redeem winnings at Pulsz?",
+        "answer": "Typically up to about 5 days, though bank-based redemption methods can take longer. You'll need at least 10 eligible Sweeps Coins, a completed 1x playthrough, and identity verification first."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "wow-vegas",
+    "name": "WOW Vegas",
+    "summary": "Newer sweepstakes casino with frequent daily bonus coin promotions.",
+    "rating": 3.9,
+    "verdict": "WOW Vegas backs a wide state footprint with large headline welcome offers, though the exact bonus you see tends to depend on which promotion is live at the time. Redemption options are solid, with cash prizes taking up to several business days.",
+    "pros": [
+      "Available in roughly 40 states — one of the broader footprints in this category",
+      "Large headline welcome coin packages",
+      "Multiple redemption methods, including Prizeout gift cards"
+    ],
+    "cons": [
+      "Advertised bonus amounts vary a lot depending on which promo is running, so treat headline figures as a starting point, not a guarantee",
+      "Cash prize redemptions can take up to about 5 business days",
+      "Shorter operating history than more established brands like Chumba"
+    ],
+    "bonusOffer": "Welcome coin package advertised around 250,000+ WOW Coins plus a handful of free Sweeps Coins, no purchase necessary — larger promotional packages appear periodically",
+    "promoCode": null,
+    "redemptionSpeed": "Gift card redemptions process within about 48 hours; cash prize redemptions (via Trustly or Skrill) can take up to 5 business days. Sweeps Coins must be played through once before redemption.",
+    "paymentMethods": [
+      "Trustly (online banking)",
+      "Visa / Mastercard / American Express / Discover / Diners",
+      "Apple Pay",
+      "Skrill",
+      "Prizeout (gift cards)"
+    ],
+    "faq": [
+      {
+        "question": "Is WOW Vegas legal in my state?",
+        "answer": "WOW Vegas is a sweepstakes casino available in a broad range of states, though not all. Check our legal-by-state page for the current list before signing up."
+      },
+      {
+        "question": "Does WOW Vegas have a promo code?",
+        "answer": "A no-purchase welcome bonus is available without a code, and larger promotional coin packages circulate periodically under various codes — check WOW Vegas's own site for what's currently active."
+      },
+      {
+        "question": "How long does it take to redeem winnings at WOW Vegas?",
+        "answer": "Gift cards typically process within about 48 hours; cash prize redemptions can take up to 5 business days, and Sweeps Coins need a 1x playthrough first."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "mcluck",
+    "name": "McLuck",
+    "summary": "Sweepstakes casino with a fast-growing slot and table game catalog.",
+    "rating": 3.9,
+    "verdict": "McLuck pairs a wide state footprint with an easy 1x playthrough on its bonus coins, making the free Sweeps Coins straightforward to use. Payment-method details are thinner in public reporting than for more established competitors, so it's worth double-checking McLuck's own banking page before playing.",
+    "pros": [
+      "Available in 30+ states",
+      "Only a 1x playthrough on bonus Sweeps Coins — easy to clear",
+      "No purchase necessary for the base welcome bonus",
+      "Promotional codes circulate for larger bonuses"
+    ],
+    "cons": [
+      "Independently confirmed payment-method details are limited — verify current options directly with McLuck",
+      "Excluded in a fairly long list of states",
+      "Newer brand with a shorter track record than Chumba"
+    ],
+    "bonusOffer": "7,500 Gold Coins + 2.5 Sweeps Coins on signup, no purchase or card required",
+    "promoCode": null,
+    "redemptionSpeed": "Bonus Sweeps Coins carry just a 1x playthrough requirement before redemption. Specific processing-time data wasn't consistently reported at time of writing — confirm current turnaround directly with McLuck before relying on it.",
+    "paymentMethods": [
+      "Not independently confirmed at time of writing — check McLuck's banking page for current options"
+    ],
+    "faq": [
+      {
+        "question": "Is McLuck legal in my state?",
+        "answer": "McLuck operates under US sweepstakes promotional law and is available in 30+ states. Check our legal-by-state page for the current list before signing up."
+      },
+      {
+        "question": "Does McLuck have a promo code?",
+        "answer": "The base welcome bonus needs no code. Promotional codes for a larger bonus circulate periodically — check McLuck's own site for what's currently active."
+      },
+      {
+        "question": "How long does it take to redeem winnings at McLuck?",
+        "answer": "Bonus Sweeps Coins only need a 1x playthrough before you can request redemption. Exact processing times weren't consistently reported publicly — confirm current turnaround with McLuck directly."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "stake-us",
+    "name": "Stake.us",
+    "summary": "Sweepstakes platform from the Stake brand, with crypto-friendly redemption.",
+    "rating": 4.0,
+    "verdict": "Stake.us leans into its crypto roots with fast, often same-day redemptions and backing from the established Stake brand — but it carries a stricter 3x playthrough than several competitors, and most publicly visible welcome offers require a promo code rather than a clear no-code baseline.",
+    "pros": [
+      "Fast redemptions, often same-day, especially via cryptocurrency",
+      "Backed by the established Stake brand",
+      "Accepts a wide range of cryptocurrencies alongside card payments"
+    ],
+    "cons": [
+      "A clear no-code baseline welcome bonus wasn't consistently documented — most public offers require a promo code",
+      "3x playthrough requirement is stricter than several competitors",
+      "Crypto focus may be less approachable if you don't already use it"
+    ],
+    "bonusOffer": "Welcome offer combines Gold Coins with a Stake Cash bonus; the exact figure and whether a promo code is required varies — check Stake.us's own site for the current no-purchase offer before signing up",
+    "promoCode": null,
+    "redemptionSpeed": "Redemptions are processed quickly once approved, often same-day via cryptocurrency, though speed depends on the network used. A 3x playthrough and a minimum of 100 Stake Cash are required, plus identity verification.",
+    "paymentMethods": [
+      "Cryptocurrency (Bitcoin, Ethereum, and others)",
+      "Credit / debit cards (via Breeze)"
+    ],
+    "faq": [
+      {
+        "question": "Is Stake.us legal in my state?",
+        "answer": "Stake.us operates as a sweepstakes casino, legally distinct from real-money gambling, in most but not all states. Check our legal-by-state page for the current list."
+      },
+      {
+        "question": "Does Stake.us have a promo code?",
+        "answer": "Most publicly visible welcome offers for Stake.us are tied to a promo code rather than a clear no-code baseline — check Stake.us's own site directly for the current offer before signing up."
+      },
+      {
+        "question": "How long does it take to redeem winnings at Stake.us?",
+        "answer": "Often same-day when redeeming via cryptocurrency, though actual speed depends on network conditions. You'll need a 3x playthrough and a minimum of 100 Stake Cash first."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "luckyland",
+    "name": "LuckyLand Slots",
+    "summary": "Mobile-first sweepstakes casino focused on slot games.",
+    "rating": 3.8,
+    "verdict": "LuckyLand's Gold Coins land instantly and its free daily Sweeps Coins bonus needs no code, but the larger, more heavily advertised 10 SC bundle appears to be tied to a $4.99 purchase rather than being fully free — worth confirming the free alternative method of entry directly with LuckyLand before assuming it's no-cost.",
+    "pros": [
+      "Gold Coins credited instantly on signup",
+      "Mobile-first design suits on-the-go slot play",
+      "Relatively low 50 SC minimum to request redemption",
+      "Small free daily Sweeps Coins bonus (0.3 SC) with no purchase"
+    ],
+    "cons": [
+      "The featured 10 SC welcome bundle is tied to a $4.99 purchase in the reporting we found — confirm the free alternative method of entry directly with LuckyLand",
+      "Excluded in a relatively long list of states",
+      "Slots only — no table games"
+    ],
+    "bonusOffer": "A free daily Sweeps Coins bonus (0.3 SC, no purchase) is available; a larger 10 SC + 7,777 Gold Coins bundle is advertised alongside a $4.99 purchase — confirm the no-purchase alternative method of entry on LuckyLand's own site",
+    "promoCode": null,
+    "redemptionSpeed": "Gold Coins are available instantly. Sweeps Coins unlock after phone and address verification, need a 1x playthrough, and require a 50 SC minimum balance before you can request redemption.",
+    "paymentMethods": [
+      "Not independently confirmed at time of writing — check LuckyLand's banking page for current options"
+    ],
+    "faq": [
+      {
+        "question": "Is LuckyLand Slots legal in my state?",
+        "answer": "LuckyLand operates as a sweepstakes casino and is unavailable in a number of states. Check our legal-by-state page for the current list before signing up."
+      },
+      {
+        "question": "Does LuckyLand have a promo code?",
+        "answer": "LuckyLand doesn't use promo codes — the free daily Sweeps Coins bonus is automatic. The larger 10 SC bundle is tied to a purchase; check LuckyLand's site directly for the current no-purchase alternative."
+      },
+      {
+        "question": "How long does it take to redeem winnings at LuckyLand?",
+        "answer": "Gold Coins are instant. Sweeps Coins need phone/address verification, a 1x playthrough, and a 50 SC minimum balance before you can request redemption."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "fortune-coins",
+    "name": "Fortune Coins",
+    "summary": "Sweepstakes casino with a rewards-club structure for regular players.",
+    "rating": 3.7,
+    "verdict": "Fortune Coins has rebranded to Fortune Wins Casino in 2026, refreshing its lobby while keeping the same sweepstakes model. Its welcome bonus is unusually large but split across several signup steps rather than granted all at once, and no purchase or promo code is required for any of it.",
+    "pros": [
+      "No purchase or promo code required for the welcome bonus",
+      "Large total welcome bonus once all signup steps are completed",
+      "Refreshed lobby/platform following the Fortune Wins rebrand"
+    ],
+    "cons": [
+      "Mid-rebrand naming (Fortune Coins → Fortune Wins) may cause some confusion when signing up",
+      "Full bonus requires completing several steps (phone verification, email/SMS consent, linking a Google account), not just registering",
+      "Payment-method specifics weren't clearly reported at time of writing"
+    ],
+    "bonusOffer": "Up to 3,000,000 Gold Coins + 3,000 Fortune Coins across several signup steps (registration, phone verification, email/SMS consent, linking a Google account), no purchase or promo code required",
+    "promoCode": null,
+    "redemptionSpeed": "Fortune Coins require a 1x playthrough on a minimum 5,000 FC balance before redemption, with a daily redemption cap of about 955,000 FC (roughly $9,550 at the standard 100:1 rate).",
+    "paymentMethods": [
+      "Not independently confirmed at time of writing — check Fortune Wins' banking page for current options"
+    ],
+    "faq": [
+      {
+        "question": "Is Fortune Coins (Fortune Wins) legal in my state?",
+        "answer": "Fortune Coins/Fortune Wins operates as a sweepstakes casino and is unavailable in a number of states. Check our legal-by-state page for the current list before signing up."
+      },
+      {
+        "question": "Did Fortune Coins change its name?",
+        "answer": "Yes — multiple sources report Fortune Coins rebranded to Fortune Wins Casino in 2026, with the same sweepstakes model under a refreshed platform."
+      },
+      {
+        "question": "How long does it take to redeem winnings at Fortune Coins?",
+        "answer": "You'll need a 1x playthrough on at least 5,000 FC before redeeming, and there's a daily redemption cap of about 955,000 FC."
+      }
+    ],
+    "reviewLastUpdated": "2026-08-26"
+  }
 ]

@@ -26,19 +26,56 @@ const { casino } = Astro.props;
 
   <section class="section">
     <div class="wrap prose">
-      <p><em>Full review in progress — pros/cons, redemption speed, payment methods, state
-      availability, and promo code will be added here per the Stage 4 review template. Legal
-      status is verified at publish time and re-checked on every refresh.</em></p>
+      {casino.pros ? (
+        <>
+          <div class="verdict-block">
+            <p class="rating"><strong>{casino.rating.toFixed(1)}/5</strong></p>
+            <p>{casino.verdict}</p>
+          </div>
 
-      <h2>At a glance</h2>
-      <ul>
-        <li><strong>Pros:</strong> TBD</li>
-        <li><strong>Cons:</strong> TBD</li>
-        <li><strong>Redemption speed:</strong> TBD</li>
-        <li><strong>Payment methods:</strong> TBD</li>
-        <li><strong>State availability:</strong> TBD &mdash; see <a href="/casinos/legal-by-state/">legal by state</a></li>
-        <li><strong>Promo code:</strong> TBD</li>
-      </ul>
+          <h2>At a glance</h2>
+          <table class="at-a-glance">
+            <tbody>
+              <tr><th>Welcome bonus</th><td>{casino.bonusOffer}</td></tr>
+              <tr><th>Promo code</th><td>{casino.promoCode ?? 'None needed'}</td></tr>
+              <tr><th>Redemption speed</th><td>{casino.redemptionSpeed}</td></tr>
+              <tr><th>Payment methods</th><td>{casino.paymentMethods.join(', ')}</td></tr>
+              <tr><th>State availability</th><td>Varies &mdash; see <a href="/casinos/legal-by-state/">legal by state</a></td></tr>
+            </tbody>
+          </table>
+
+          <h2>Pros</h2>
+          <ul>
+            {casino.pros.map((pro) => <li>{pro}</li>)}
+          </ul>
+
+          <h2>Cons</h2>
+          <ul>
+            {casino.cons.map((con) => <li>{con}</li>)}
+          </ul>
+
+          <h2>FAQ</h2>
+          {casino.faq.map((item) => (
+            <>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </>
+          ))}
+
+          <p class="updated">Review last updated: {casino.reviewLastUpdated}</p>
+
+          <p>
+            <em>How we tested:</em> ratings and redemption/payment details reflect the operator's
+            published terms and independent reporting at time of writing, cross-checked across
+            multiple sources. Bonus offers and state availability change often &mdash; always
+            confirm current terms directly with the operator before playing.
+          </p>
+        </>
+      ) : (
+        <p><em>Full review in progress — pros/cons, redemption speed, payment methods, state
+        availability, and promo code will be added here per the Phase 4 review template. Legal
+        status is verified at publish time and re-checked on every refresh.</em></p>
+      )}
 
       <div class="disclaimer-banner">
         Affiliate disclosure: some links on this page may be affiliate links. If you sign up
