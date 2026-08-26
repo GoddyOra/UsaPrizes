@@ -32,6 +32,9 @@ const GAMES = [
     jsonPath: new URL('../src/data/lottery/mega-millions.json', import.meta.url),
     displayName: 'Mega Millions',
     specialBallName: 'Mega Ball',
+    // Unlike Powerball, this dataset reports the Mega Ball as its own field rather than
+    // folding it into "winning_numbers" (confirmed via a live Actions run on 2026-08-26).
+    specialBallField: 'mega_ball',
     // Mega Millions draws Tue/Fri.
     drawDaysOfWeek: [2, 5],
   },
@@ -48,8 +51,8 @@ function nextDrawDateISO(drawDaysOfWeek, fromDate = new Date()) {
   return null;
 }
 
-async function fetchLatestDraw(resourceId) {
-  const url = `https://data.ny.gov/resource/${resourceId}.json?$limit=1&$order=draw_date%20DESC`;
+async function fetchLatestDraw(game) {
+  const url = `https://data.ny.gov/resource/${game.resourceId}.json?$limit=1&$order=draw_date%20DESC`;
   const headers = { Accept: 'application/json' };
   if (process.env.SOCRATA_APP_TOKEN) {
     headers['X-App-Token'] = process.env.SOCRATA_APP_TOKEN;
@@ -67,9 +70,11 @@ async function fetchLatestDraw(resourceId) {
 
   const row = rows[0];
 
-  // The historical NY lottery datasets expose the draw as a "winning_numbers" string
-  // (space-separated), with the special ball as the final number. Parse defensively and
-  // dump the raw row on failure so a schema mismatch is immediately visible in the Action log.
+  // The NY lottery datasets expose the draw as a "winning_numbers" string (space-separated).
+  // Powerball folds the special ball into that string as the final number; Mega Millions
+  // reports it separately as "mega_ball" (confirmed via live Actions runs — the two datasets
+  // don't share a schema). Parse defensively and dump the raw row on failure so any future
+  // schema change is immediately visible in the Action log.
   const drawDate = row.draw_date;
   const winningNumbersRaw = row.winning_numbers;
 
@@ -80,20 +85,33 @@ async function fetchLatestDraw(resourceId) {
     );
   }
 
-  const parts = String(winningNumbersRaw).trim().split(/\s+/).map(Number);
-  if (parts.length < 6 || parts.some(Number.isNaN)) {
+  const numbers = String(winningNumbersRaw).trim().split(/\s+/).map(Number);
+
+  let specialBall;
+  if (game.specialBallField) {
+    specialBall = Number(row[game.specialBallField]);
+    if (Number.isNaN(specialBall)) {
+      console.error('Unexpected row shape from Socrata — raw row:', JSON.stringify(row, null, 2));
+      throw new Error(`Expected numeric "${game.specialBallField}" field`);
+    }
+  } else {
+    // No dedicated field — the special ball is the last entry in winning_numbers.
+    if (numbers.length < 2) {
+      console.error('Unexpected winning_numbers format — raw row:', JSON.stringify(row, null, 2));
+      throw new Error(`Could not parse "winning_numbers": "${winningNumbersRaw}"`);
+    }
+    specialBall = numbers.pop();
+  }
+
+  if (numbers.some(Number.isNaN)) {
     console.error('Unexpected winning_numbers format — raw row:', JSON.stringify(row, null, 2));
     throw new Error(`Could not parse "winning_numbers": "${winningNumbersRaw}"`);
   }
-
-  const specialBall = parts[parts.length - 1];
-  const numbers = parts.slice(0, parts.length - 1);
 
   return {
     drawDateISO: new Date(drawDate).toISOString().slice(0, 10),
     numbers,
     specialBall,
-    multiplier: row.multiplier ?? null,
   };
 }
 
@@ -101,7 +119,7 @@ async function updateGame(game) {
   const filePath = fileURLToPath(game.jsonPath);
   const current = JSON.parse(await readFile(filePath, 'utf-8'));
 
-  const draw = await fetchLatestDraw(game.resourceId);
+  const draw = await fetchLatestDraw(game);
 
   if (current.drawDate === draw.drawDateISO) {
     console.log(`${game.displayName}: no new draw since ${current.drawDate}, skipping.`);
