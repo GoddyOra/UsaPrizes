@@ -1,10 +1,16 @@
 {
   "game": "Mega Millions",
-  "drawDate": null,
-  "numbers": [],
-  "specialBall": null,
+  "drawDate": "2026-08-25",
+  "numbers": [
+    7,
+    10,
+    47,
+    48,
+    50
+  ],
+  "specialBall": 14,
   "specialBallName": "Mega Ball",
   "jackpot": null,
-  "nextDrawDate": null,
-  "note": "Placeholder — populated by the Stage 3 GitHub Actions pipeline pulling from data.ny.gov."
+  "nextDrawDate": "2026-08-28",
+  "lastUpdated": "2026-08-26T12:33:52.095Z"
 }

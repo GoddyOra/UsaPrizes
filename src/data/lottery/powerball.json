@@ -1,10 +1,16 @@
 {
   "game": "Powerball",
-  "drawDate": null,
-  "numbers": [],
-  "specialBall": null,
+  "drawDate": "2026-08-24",
+  "numbers": [
+    3,
+    16,
+    33,
+    38,
+    68
+  ],
+  "specialBall": 2,
   "specialBallName": "Powerball",
   "jackpot": null,
-  "nextDrawDate": null,
-  "note": "Placeholder — populated by the Stage 3 GitHub Actions pipeline pulling from data.ny.gov."
+  "nextDrawDate": "2026-08-29",
+  "lastUpdated": "2026-08-26T12:33:51.966Z"
 }
