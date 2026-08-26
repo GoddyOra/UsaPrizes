@@ -1,5 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const guides = (await getCollection('guides')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
 ---
 
 <BaseLayout
@@ -15,9 +20,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <section class="section">
-    <div class="wrap prose">
-      <p><em>First guides publish as part of the Stage 9 content cadence (3&ndash;5 new
-      articles per week after launch).</em></p>
+    <div class="wrap">
+      {guides.length > 0 ? (
+        <div class="grid-cards">
+          {guides.map((guide) => (
+            <a class="card" href={`/guides/${guide.id}/`}>
+              <h3>{guide.data.title}</h3>
+              <p>{guide.data.description}</p>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p><em>First guides publish as part of the Phase 9 content cadence (2&ndash;3 new
+        articles per week after launch).</em></p>
+      )}
     </div>
   </section>
 </BaseLayout>
