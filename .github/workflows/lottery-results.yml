@@ -1,0 +1,44 @@
+name: Update lottery results
+
+on:
+  schedule:
+    # Daily at 09:00 UTC — safely after any Powerball (Mon/Wed/Sat) or Mega Millions (Tue/Fri)
+    # draw the previous night regardless of EST/EDT, plus a buffer for data.ny.gov posting lag.
+    # GitHub Actions cron is UTC-only and can itself lag 10-30 min at peak times — see
+    # docs/KEYWORD_MAP.md's parent plan (Phase 3) for the caveats this schedule works around.
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lottery-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch latest draw results
+        env:
+          SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+        run: node scripts/fetch-lottery-results.mjs
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "usaprizes-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/lottery/*.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update lottery results [automated]"
+            git push
+          fi

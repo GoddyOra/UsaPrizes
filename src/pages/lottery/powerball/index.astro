@@ -21,8 +21,11 @@ import results from '../../../data/lottery/powerball.json';
         <div class="card" style="max-width: 480px;">
           <h3>Draw date: {results.drawDate}</h3>
           <p>Numbers: {results.numbers.join(' - ')} | {results.specialBallName}: {results.specialBall}</p>
-          <p>Jackpot: {results.jackpot}</p>
+          {results.jackpot && <p>Jackpot: {results.jackpot}</p>}
           <p>Next drawing: {results.nextDrawDate}</p>
+          {results.lastUpdated && (
+            <p class="updated">Last updated: {new Date(results.lastUpdated).toUTCString()}</p>
+          )}
         </div>
       ) : (
         <p>Results are loading. The automated pipeline (Stage 3) will populate this page after the next drawing.</p>
