@@ -1,6 +1,33 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import casinos from '../../../data/casinos.json';
+
+const ranked = [...casinos].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+
+// Keep the comparison table scannable — full detail lives on each review's "at a glance" table.
+function truncate(text, max = 70) {
+  if (!text || text.length <= max) return text;
+  const cut = text.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(' ')) + '…';
+}
+
+const faq = [
+  {
+    question: 'What is the best sweepstakes casino overall?',
+    answer:
+      'Based on our reviews, Chumba Casino ranks highest overall for its long operating history, large slot library, and no-purchase-necessary welcome bonus — see the full ranking and comparison table below for how it compares on redemption speed and payment methods.',
+  },
+  {
+    question: 'Are sweepstakes casinos legal?',
+    answer:
+      "Sweepstakes casinos use a promotional model — Gold Coins for free play plus Sweeps Coins redeemable for prizes — that's legally distinct from real-money online gambling under US sweepstakes law, and available in most states. Availability varies and can change; see our legal-by-state guide for the current picture.",
+  },
+  {
+    question: 'How do I pick a sweepstakes casino?',
+    answer:
+      "It depends on what matters most to you: Chumba and Pulsz lean on longer track records, Stake.us offers fast crypto redemption, and WOW Vegas and McLuck cover a broader range of states. Compare redemption speed, payment methods, and state availability in the table below, then read the full review for any brand you're considering.",
+  },
+];
 ---
 
 <BaseLayout
@@ -20,18 +47,50 @@ import casinos from '../../../data/casinos.json';
   </section>
 
   <section class="section">
-    <div class="wrap">
+    <div class="wrap prose">
       <ol style="list-style: none; padding: 0; display: grid; gap: 1rem;">
-        {casinos.map((c, i) => (
+        {ranked.map((c, i) => (
           <li class="card" style="display: flex; gap: 1rem; align-items: baseline;">
             <span style="font-weight: 800; font-size: 1.3rem; color: var(--color-primary);">#{i + 1}</span>
             <div>
-              <h3><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a></h3>
+              <h3><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a>{c.rating && <span style="color: var(--color-muted); font-weight: 400;"> &mdash; {c.rating.toFixed(1)}/5</span>}</h3>
               <p>{c.summary}</p>
             </div>
           </li>
         ))}
       </ol>
+
+      <h2>Full comparison</h2>
+      <div style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Casino</th>
+              <th>Rating</th>
+              <th>Welcome bonus</th>
+              <th>Redemption</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ranked.map((c) => (
+              <tr>
+                <td><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a></td>
+                <td>{c.rating ? `${c.rating.toFixed(1)}/5` : 'Review in progress'}</td>
+                <td>{truncate(c.bonusOffer) ?? 'TBD'}</td>
+                <td>{c.redemptionSpeed ? truncate(c.redemptionSpeed.split('.')[0] + '.') : 'TBD'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>FAQ</h2>
+      {faq.map((item) => (
+        <>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </>
+      ))}
 
       <div class="disclaimer-banner">
         Rankings reflect our editorial judgment based on published reviews. Some links may be
