@@ -1,5 +1,78 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+// Sourced from multiple independent listings, cross-checked where possible — see the
+// per-brand confidence note. This is genuinely one of the highest-risk pages on the site
+// (legal/regulatory claims), so gaps and conflicts are shown rather than papered over.
+const availability = [
+  {
+    slug: 'chumba',
+    name: 'Chumba Casino',
+    excluded: 'Connecticut, Michigan, Montana, Washington, Nevada, California, New York, Indiana',
+    goldCoinOnly: 'Idaho, Tennessee, West Virginia',
+    confidence: 'Consistent across sources checked.',
+  },
+  {
+    slug: 'pulsz',
+    name: 'Pulsz Casino',
+    excluded: null,
+    goldCoinOnly: null,
+    confidence: 'Not independently confirmed at time of writing — check Pulsz’s own site directly.',
+  },
+  {
+    slug: 'wow-vegas',
+    name: 'WOW Vegas',
+    excluded: 'Washington, Idaho, Nevada, Michigan, Montana',
+    goldCoinOnly: null,
+    confidence: 'Reported as available in roughly 40 states; consistent across sources checked.',
+  },
+  {
+    slug: 'mcluck',
+    name: 'McLuck',
+    excluded: 'Montana, Washington, Idaho, Kentucky, Nevada, Michigan, Louisiana, Delaware, West Virginia, Maryland, Connecticut, New York, New Jersey, California, Indiana',
+    goldCoinOnly: null,
+    confidence: 'Consistent across sources checked.',
+  },
+  {
+    slug: 'stake-us',
+    name: 'Stake.us',
+    excluded: null,
+    goldCoinOnly: null,
+    confidence: 'Not independently confirmed at time of writing — check Stake.us’s own site directly.',
+  },
+  {
+    slug: 'luckyland',
+    name: 'LuckyLand Slots',
+    excluded: 'Connecticut, Idaho, Michigan, Montana, Nevada, Washington',
+    goldCoinOnly: null,
+    confidence: '⚠️ Sources disagreed — one listed only 6 excluded states (shown here), another listed 18, including Alabama, California, Delaware, Indiana, Kentucky, Louisiana, Maine, Maryland, New Jersey, New York, Tennessee, and West Virginia. Verify directly before assuming availability.',
+  },
+  {
+    slug: 'fortune-coins',
+    name: 'Fortune Coins',
+    excluded: 'Alabama, California, Connecticut, Delaware, Idaho, Indiana, Kentucky, Louisiana, Maine, Maryland, Michigan, Montana, Nevada, New Jersey, New York, Tennessee, Washington, West Virginia',
+    goldCoinOnly: null,
+    confidence: 'Consistent across sources checked. Note: this brand has reportedly rebranded to "Fortune Wins" — see its review.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Why do sweepstakes casinos exclude certain states?',
+    answer:
+      'Individual states regulate sweepstakes promotions differently, and some have laws that make the Gold Coin / Sweeps Coin model legally risky or unworkable for operators, so most sweepstakes casinos voluntarily exclude those states rather than operate there. The excluded list varies by brand and changes as state laws change.',
+  },
+  {
+    question: 'How often does this list change?',
+    answer:
+      'Regularly enough that it needs active monitoring — state legislatures have introduced and passed new restrictions on the sweepstakes-casino model in recent years. Treat this page as a starting point, not a final answer, and confirm current availability directly with the operator before signing up.',
+  },
+  {
+    question: 'Is playing at a sweepstakes casino the same as real-money gambling?',
+    answer:
+      'No. Sweepstakes casinos use Gold Coins for free play and separately-awarded Sweeps Coins redeemable for prizes, structured under state promotional-sweepstakes law rather than gambling law. That said, the legal distinction and its treatment vary by state, which is exactly why availability differs brand to brand.',
+  },
+];
 ---
 
 <BaseLayout
@@ -20,13 +93,56 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
   <section class="section">
     <div class="wrap prose">
-      <p><em>State-by-state legal status table in progress. Restricted states will be listed
-      here as content is added, per the Stage 4 content build.</em></p>
+      <p>
+        Sweepstakes-casino availability is set by each operator, not a single national list, and
+        it changes as state laws change. The table below shows what we found per brand, along
+        with how confident we are in that data &mdash; where sources disagreed or we couldn't
+        independently confirm a state list, that's called out rather than guessed at.
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Casino</th>
+              <th>Not available in</th>
+              <th>Gold Coin only</th>
+            </tr>
+          </thead>
+          <tbody>
+            {availability.map((a) => (
+              <tr>
+                <td><a href={`/casinos/reviews/${a.slug}/`}>{a.name}</a></td>
+                <td>{a.excluded ?? 'Not confirmed — check operator directly'}</td>
+                <td>{a.goldCoinOnly ?? '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Sourcing notes</h2>
+      <ul>
+        {availability.map((a) => (
+          <li><strong>{a.name}:</strong> {a.confidence}</li>
+        ))}
+      </ul>
+
+      <h2>FAQ</h2>
+      {faq.map((item) => (
+        <>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </>
+      ))}
+
+      <p class="updated">Page last updated: 2026-08-26</p>
 
       <div class="disclaimer-banner">
         This page is informational only and is not legal advice. Sweepstakes-casino legality
-        can change quickly &mdash; five states restricted or banned the model in 2026 alone.
-        Verify current legality in your state before playing.
+        can change quickly and data is aggregated from public reporting, not verified directly
+        with each operator &mdash; always confirm current availability in your state before
+        playing.
       </div>
     </div>
   </section>
