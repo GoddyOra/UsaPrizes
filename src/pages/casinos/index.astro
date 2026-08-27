@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import casinos from '../../data/casinos.json';
 ---
 
@@ -9,6 +10,7 @@ import casinos from '../../data/casinos.json';
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Casino Reviews', href: '/casinos/' }]} />
       <p class="eyebrow">Casino Reviews</p>
       <h1>Sweepstakes casino reviews</h1>
       <p>

@@ -1,14 +1,23 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import results from '../../../data/lottery/powerball.json';
+
+const title = results.drawDate
+  ? `Powerball Winning Numbers — ${results.drawDate} Results & Next Jackpot`
+  : 'Powerball Winning Numbers & Results';
 ---
 
 <BaseLayout
-  title="Powerball Winning Numbers & Results"
+  title={title}
   description="Latest Powerball winning numbers, jackpot amount, and next drawing date."
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Lottery Results', href: '/lottery/' },
+        { name: 'Powerball', href: '/lottery/powerball/' },
+      ]} />
       <p class="eyebrow">Lottery &rsaquo; Powerball</p>
       <h1>Powerball results</h1>
       <p>Drawings are held every Monday, Wednesday, and Saturday at 10:59 p.m. ET.</p>

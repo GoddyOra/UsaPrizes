@@ -1,0 +1,30 @@
+---
+import { breadcrumbListSchema, type BreadcrumbItem } from '../lib/schema';
+
+interface Props {
+  items: BreadcrumbItem[]; // page-specific trail; "Home" is prepended automatically
+}
+
+const { items } = Astro.props;
+const trail: BreadcrumbItem[] = [{ name: 'Home', href: '/' }, ...items];
+const schema = breadcrumbListSchema(trail);
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol>
+    {trail.map((item, i) => (
+      <li>
+        {i < trail.length - 1 ? (
+          <>
+            <a href={item.href}>{item.name}</a>
+            <span aria-hidden="true"> / </span>
+          </>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

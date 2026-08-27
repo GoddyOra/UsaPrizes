@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { faqPageSchema } from '../../../lib/schema';
 
 // Sourced from multiple independent listings, cross-checked where possible — see the
 // per-brand confidence note. This is genuinely one of the highest-risk pages on the site
@@ -73,14 +75,21 @@ const faq = [
       'No. Sweepstakes casinos use Gold Coins for free play and separately-awarded Sweeps Coins redeemable for prizes, structured under state promotional-sweepstakes law rather than gambling law. That said, the legal distinction and its treatment vary by state, which is exactly why availability differs brand to brand.',
   },
 ];
+
+const schema = [faqPageSchema(faq)];
 ---
 
 <BaseLayout
   title="Sweepstakes Casinos: Legal By State"
   description="Where sweepstakes casinos are and aren't available, state by state. Legal status changes — verify directly with each operator."
+  schema={schema}
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Casino Reviews', href: '/casinos/' },
+        { name: 'Legal By State', href: '/casinos/legal-by-state/' },
+      ]} />
       <p class="eyebrow">Casino Reviews</p>
       <h1>Sweepstakes casinos: legal by state</h1>
       <p>

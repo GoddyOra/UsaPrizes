@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 const lastUpdated = 'August 25, 2026';
 ---
 
@@ -9,6 +10,7 @@ const lastUpdated = 'August 25, 2026';
 >
   <section class="section">
     <div class="wrap prose">
+      <Breadcrumbs items={[{ name: 'Terms of Use', href: '/terms/' }]} />
       <h1>Terms of Use</h1>
       <p class="updated">Last updated: {lastUpdated}</p>
 

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const guides = (await getCollection('guides')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -13,6 +14,7 @@ const guides = (await getCollection('guides')).sort(
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Guides', href: '/guides/' }]} />
       <p class="eyebrow">Guides</p>
       <h1>Guides</h1>
       <p>Long-form, informational content on how sweepstakes casinos and lottery games work.</p>

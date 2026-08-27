@@ -1,14 +1,23 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import results from '../../../data/lottery/mega-millions.json';
+
+const title = results.drawDate
+  ? `Mega Millions Winning Numbers — ${results.drawDate} Results & Next Jackpot`
+  : 'Mega Millions Winning Numbers & Results';
 ---
 
 <BaseLayout
-  title="Mega Millions Winning Numbers & Results"
+  title={title}
   description="Latest Mega Millions winning numbers, jackpot amount, and next drawing date."
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Lottery Results', href: '/lottery/' },
+        { name: 'Mega Millions', href: '/lottery/mega-millions/' },
+      ]} />
       <p class="eyebrow">Lottery &rsaquo; Mega Millions</p>
       <h1>Mega Millions results</h1>
       <p>Drawings are held every Tuesday and Friday at 11:00 p.m. ET.</p>

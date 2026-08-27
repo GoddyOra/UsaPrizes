@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const games = [
   { slug: 'powerball', name: 'Powerball', desc: 'Drawings every Monday, Wednesday, and Saturday.' },
@@ -13,6 +14,7 @@ const games = [
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Lottery Results', href: '/lottery/' }]} />
       <p class="eyebrow">Lottery Results</p>
       <h1>Lottery results</h1>
       <p>Winning numbers for the multi-state games, plus individual state lotteries as we add them.</p>

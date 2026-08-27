@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import casinos from '../../../data/casinos.json';
+import { reviewSchema, faqPageSchema } from '../../../lib/schema';
 
 export function getStaticPaths() {
   return casinos.map((c) => ({
@@ -10,14 +12,35 @@ export function getStaticPaths() {
 }
 
 const { casino } = Astro.props;
+
+const title = casino.pros
+  ? `${casino.name} Review 2026: Is It Legit? Bonuses & Redemption`
+  : `${casino.name} Review`;
+
+const schema = casino.pros
+  ? [
+      reviewSchema({
+        itemName: casino.name,
+        ratingValue: casino.rating,
+        reviewBody: casino.verdict,
+        datePublished: casino.reviewLastUpdated,
+      }),
+      faqPageSchema(casino.faq),
+    ]
+  : [];
 ---
 
 <BaseLayout
-  title={`${casino.name} Review`}
+  title={title}
   description={`${casino.name} review: redemption speed, payment methods, state availability, and promo code.`}
+  schema={schema}
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Casino Reviews', href: '/casinos/' },
+        { name: casino.name, href: `/casinos/reviews/${casino.slug}/` },
+      ]} />
       <p class="eyebrow">Casino Reviews</p>
       <h1>{casino.name} review</h1>
       <p>{casino.summary}</p>

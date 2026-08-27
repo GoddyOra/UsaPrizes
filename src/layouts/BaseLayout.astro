@@ -1,14 +1,17 @@
 ---
 import '../styles/global.css';
+import { organizationSchema, websiteSchema } from '../lib/schema';
 
 interface Props {
   title: string;
   description: string;
+  schema?: object[]; // page-specific JSON-LD (Review, FAQPage, Article, etc.)
 }
 
-const { title, description } = Astro.props;
+const { title, description, schema = [] } = Astro.props;
 const siteName = 'USA Prizes';
 const year = new Date().getFullYear();
+const allSchema = [organizationSchema(), websiteSchema(), ...schema];
 ---
 
 <!doctype html>
@@ -20,6 +23,9 @@ const year = new Date().getFullYear();
     <title>{title} | {siteName}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    {allSchema.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
   </head>
   <body>
     <header class="site-header">

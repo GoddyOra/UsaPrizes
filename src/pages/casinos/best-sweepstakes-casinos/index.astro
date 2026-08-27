@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import casinos from '../../../data/casinos.json';
+import { faqPageSchema } from '../../../lib/schema';
 
 const ranked = [...casinos].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
 
@@ -28,14 +30,21 @@ const faq = [
       "It depends on what matters most to you: Chumba and Pulsz lean on longer track records, Stake.us offers fast crypto redemption, and WOW Vegas and McLuck cover a broader range of states. Compare redemption speed, payment methods, and state availability in the table below, then read the full review for any brand you're considering.",
   },
 ];
+
+const schema = [faqPageSchema(faq)];
 ---
 
 <BaseLayout
   title="Best Sweepstakes Casinos"
   description="Our current ranked picks for the best legal sweepstakes casinos in the U.S., compared on redemption speed, game selection, and state availability."
+  schema={schema}
 >
   <section class="hero">
     <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Casino Reviews', href: '/casinos/' },
+        { name: 'Best Sweepstakes Casinos', href: '/casinos/best-sweepstakes-casinos/' },
+      ]} />
       <p class="eyebrow">Casino Reviews</p>
       <h1>Best sweepstakes casinos</h1>
       <p>
