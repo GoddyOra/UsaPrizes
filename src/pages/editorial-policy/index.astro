@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-const lastUpdated = 'August 25, 2026';
+import casinos from '../../data/casinos.json';
+const lastUpdated = 'August 27, 2026';
+const verifiedCount = casinos.filter((c) => c.handsOnVerified).length;
 ---
 
 <BaseLayout
@@ -14,10 +16,20 @@ const lastUpdated = 'August 25, 2026';
       <h1>Editorial Policy</h1>
       <p class="updated">Last updated: {lastUpdated}</p>
 
-      <h2>How we review</h2>
+      <h2 id="reviewer">Who reviews this site</h2>
       <p>
-        Every sweepstakes casino review on this site is based on hands-on account creation,
-        redemption testing, and monitoring of published terms. We evaluate each operator on:
+        USAPrizes.com is founded, written, and maintained by <strong>Ora</strong>. There's no
+        anonymous "expert team" behind the byline &mdash; ratings and rankings reflect one
+        person's editorial judgment, made transparently, and are corrected in public when
+        they're wrong. Questions or corrections go straight to the address in the
+        <a href="#contact">Contact</a> section below.
+      </p>
+
+      <h2 id="how-we-review">How we review</h2>
+      <p>
+        Every casino review starts from cross-checked public research: the operator's own
+        published terms, plus independent reporting, compared across multiple sources rather
+        than taken from any single listing. We evaluate each operator on:
       </p>
       <ul>
         <li>Redemption speed and reliability</li>
@@ -26,6 +38,14 @@ const lastUpdated = 'August 25, 2026';
         <li>State availability and current legal status</li>
         <li>Bonus terms and how clearly they're disclosed</li>
       </ul>
+      <p>
+        We're moving each review beyond desk research to genuine hands-on account testing,
+        including real redemption attempts, since every sweepstakes casino we cover is free to
+        join. That's an ongoing process, not something claimed retroactively: each review states
+        plainly whether it's hands-on verified yet or still desk-research-based, and updates as
+        testing is completed. Current status: <strong>{verifiedCount} of {casinos.length}</strong>{' '}
+        brands hands-on verified.
+      </p>
       <p>
         Ratings and rankings reflect our own editorial judgment. They are not paid placements
         &mdash; no operator can buy a higher rating or a spot on our
@@ -50,10 +70,12 @@ const lastUpdated = 'August 25, 2026';
         lottery result always governs.
       </p>
 
-      <h2>Corrections</h2>
+      <h2 id="contact">Corrections &amp; contact</h2>
       <p>
-        If you spot an error, contact us via the details on our <a href="/about/">About</a>
-        page and we will investigate and correct it promptly.
+        If you spot an error &mdash; on a review, a legality page, or anywhere else &mdash;
+        email <a href="mailto:hello@usaprizes.com">hello@usaprizes.com</a> and we will
+        investigate and correct it promptly. This is also the address for press inquiries and
+        general questions.
       </p>
     </div>
   </section>

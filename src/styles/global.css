@@ -232,6 +232,12 @@ main {
   margin: 0 0 0.5rem;
 }
 
+.verdict-block .byline {
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  margin: 0.75rem 0 0;
+}
+
 table.at-a-glance {
   width: 100%;
   border-collapse: collapse;

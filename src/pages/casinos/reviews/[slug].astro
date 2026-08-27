@@ -54,6 +54,10 @@ const schema = casino.pros
           <div class="verdict-block">
             <p class="rating"><strong>{casino.rating.toFixed(1)}/5</strong></p>
             <p>{casino.verdict}</p>
+            <p class="byline">
+              Reviewed by <a href="/editorial-policy/#reviewer">Ora</a>, USA Prizes founder &mdash;
+              see our <a href="/editorial-policy/#how-we-review">review methodology</a>.
+            </p>
           </div>
 
           <h2>At a glance</h2>
@@ -88,10 +92,13 @@ const schema = casino.pros
           <p class="updated">Review last updated: {casino.reviewLastUpdated}</p>
 
           <p>
-            <em>How we tested:</em> ratings and redemption/payment details reflect the operator's
-            published terms and independent reporting at time of writing, cross-checked across
-            multiple sources. Bonus offers and state availability change often &mdash; always
-            confirm current terms directly with the operator before playing.
+            <em>How we tested:</em> {casino.handsOnVerified ? (
+              'This review is based on hands-on account testing, including redemption, alongside cross-checked public research.'
+            ) : (
+              "This review is currently based on cross-checked public research (operator terms, independent reporting) rather than hands-on account testing — we haven't yet completed that verification step for this brand. It'll be marked as hands-on tested once we have."
+            )} Bonus offers and state availability change often &mdash; always confirm current
+            terms directly with the operator before playing. Full methodology:
+            <a href="/editorial-policy/#how-we-review">how we review</a>.
           </p>
         </>
       ) : (
