@@ -32,13 +32,40 @@ jobs:
         run: node scripts/fetch-lottery-results.mjs
 
       - name: Commit and push if changed
+        id: commit
         run: |
           git config user.name "usaprizes-bot"
           git config user.email "actions@users.noreply.github.com"
           git add src/data/lottery/*.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
+            echo "changed_files=" >> "$GITHUB_OUTPUT"
           else
+            CHANGED=$(git diff --cached --name-only | tr '\n' ' ')
             git commit -m "Update lottery results [automated]"
             git push
+            echo "changed_files=$CHANGED" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Pings Bing/Yandex (IndexNow participants — not Google, which has no equivalent API)
+      # so the updated result page gets picked up faster than waiting on normal crawl discovery.
+      - name: Ping IndexNow for changed pages
+        if: steps.commit.outputs.changed_files != ''
+        run: |
+          URLS="[]"
+          for f in ${{ steps.commit.outputs.changed_files }}; do
+            case "$f" in
+              *powerball.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/powerball/"]') ;;
+              *mega-millions.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/mega-millions/"]') ;;
+            esac
+          done
+          if [ "$URLS" != "[]" ]; then
+            curl -s -X POST https://api.indexnow.org/indexnow \
+              -H "Content-Type: application/json" \
+              -d "$(jq -n --argjson urls "$URLS" '{
+                host: "usaprizes.com",
+                key: "0e93521195a46f22062beba56f87d164",
+                keyLocation: "https://usaprizes.com/0e93521195a46f22062beba56f87d164.txt",
+                urlList: $urls
+              }')"
           fi
