@@ -1,16 +1,16 @@
 {
   "game": "Powerball",
-  "drawDate": "2026-08-24",
+  "drawDate": "2026-08-26",
   "numbers": [
-    3,
-    16,
-    33,
-    38,
-    68
+    12,
+    32,
+    45,
+    50,
+    58
   ],
   "specialBall": 2,
   "specialBallName": "Powerball",
   "jackpot": null,
   "nextDrawDate": "2026-08-29",
-  "lastUpdated": "2026-08-26T12:33:51.966Z"
+  "lastUpdated": "2026-08-27T19:21:48.456Z"
 }
