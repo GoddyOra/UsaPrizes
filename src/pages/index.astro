@@ -1,5 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StarRating from '../components/StarRating.astro';
+import BrandAvatar from '../components/BrandAvatar.astro';
+import casinos from '../data/casinos.json';
+
+const topCasinos = [...casinos]
+  .filter((c) => c.rating)
+  .sort((a, b) => b.rating - a.rating)
+  .slice(0, 3);
+
+const guides = await getCollection('guides');
+const latestGuides = [...guides]
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -7,7 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Fast, accurate Powerball and Mega Millions results plus independent, up-to-date reviews of the top legal sweepstakes casinos in the U.S."
 >
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap fade-in-up">
       <p class="eyebrow">USA Prizes</p>
       <h1>Lottery results and sweepstakes casino reviews, kept current</h1>
       <p>
@@ -15,6 +29,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         drawing, alongside independent reviews of the sweepstakes casinos legally available in
         your state.
       </p>
+      <div class="stat-row">
+        <div class="stat"><strong>{casinos.length}</strong><span>Casinos reviewed</span></div>
+        <div class="stat"><strong>{guides.length}</strong><span>Guides published</span></div>
+        <div class="stat"><strong>2</strong><span>Live lottery feeds</span></div>
+      </div>
     </div>
   </section>
 
@@ -43,10 +62,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="wrap">
       <p class="eyebrow">Casino Reviews</p>
       <h2>Sweepstakes casinos, reviewed honestly</h2>
-      <div class="grid-cards">
+
+      <div style="display: grid; gap: 0.85rem; margin-top: 1.5rem;">
+        {topCasinos.map((c, i) => (
+          <a href={`/casinos/reviews/${c.slug}/`} class={`rank-row ${i < 3 ? `rank-${i + 1}` : ''}`} style="text-decoration: none; color: inherit;">
+            <span class="rank-number">{i + 1}</span>
+            <BrandAvatar name={c.name} size={40} />
+            <div style="flex: 1;">
+              <strong style="font-size: 0.98rem;">{c.name}</strong>
+              <p style="margin: 0; color: var(--color-muted); font-size: 0.88rem;">{c.summary}</p>
+            </div>
+            <StarRating rating={c.rating} size={15} />
+          </a>
+        ))}
+      </div>
+
+      <div class="grid-cards" style="margin-top: 1.5rem;">
         <a class="card" href="/casinos/best-sweepstakes-casinos/">
           <h3>Best Sweepstakes Casinos &rarr;</h3>
-          <p>Our current top picks, ranked and compared.</p>
+          <p>Full ranking of all {casinos.length}, compared side by side.</p>
         </a>
         <a class="card" href="/casinos/legal-by-state/">
           <h3>Legal By State</h3>
@@ -65,9 +99,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow">Guides</p>
       <h2>Learn the basics</h2>
       <div class="grid-cards">
+        {latestGuides.map((g) => (
+          <a class="card" href={`/guides/${g.id}/`}>
+            <h3>{g.data.title}</h3>
+            <p>{g.data.description}</p>
+          </a>
+        ))}
         <a class="card" href="/guides/">
           <h3>All guides &rarr;</h3>
-          <p>How sweepstakes casinos work, redemption tips, and more.</p>
+          <p>Browse the full library.</p>
         </a>
       </div>
     </div>

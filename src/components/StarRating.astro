@@ -1,0 +1,32 @@
+---
+interface Props {
+  rating: number; // 0-5
+  size?: number; // px
+  showScore?: boolean;
+}
+
+const { rating, size = 20, showScore = true } = Astro.props;
+const clamped = Math.max(0, Math.min(5, rating));
+const fills = [0, 1, 2, 3, 4].map((i) => Math.max(0, Math.min(1, clamped - i)) * 100);
+const uid = Math.random().toString(36).slice(2, 9);
+const STAR_PATH =
+  'M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279-6.064-5.828 8.332-1.151z';
+---
+
+<span class="star-rating">
+  <span class="stars" aria-hidden="true">
+    {fills.map((fillPct, i) => (
+      <svg viewBox="0 0 24 24" width={size} height={size}>
+        <defs>
+          <linearGradient id={`star-${uid}-${i}`}>
+            <stop offset={`${fillPct}%`} stop-color="var(--color-accent)" />
+            <stop offset={`${fillPct}%`} stop-color="var(--color-border)" />
+          </linearGradient>
+        </defs>
+        <path fill={`url(#star-${uid}-${i})`} d={STAR_PATH} />
+      </svg>
+    ))}
+  </span>
+  {showScore && <span class="score">{clamped.toFixed(1)}</span>}
+  <span class="visually-hidden">{clamped.toFixed(1)} out of 5 stars</span>
+</span>

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import StarRating from '../../../components/StarRating.astro';
+import BrandAvatar from '../../../components/BrandAvatar.astro';
 import casinos from '../../../data/casinos.json';
 import { faqPageSchema } from '../../../lib/schema';
 
@@ -49,8 +51,7 @@ const schema = [faqPageSchema(faq)];
       <h1>Best sweepstakes casinos</h1>
       <p>
         Ranked by redemption speed, game selection, and state availability. Updated as legality
-        and promotions change &mdash; see our <a href="/lottery/">lottery results</a> or the
-        <a href="/casinos/legal-by-state/">legal-by-state guide</a>.
+        and promotions change &mdash; see our <a href="/lottery/">lottery results</a> or the <a href="/casinos/legal-by-state/">legal-by-state guide</a>.
       </p>
     </div>
   </section>
@@ -59,12 +60,14 @@ const schema = [faqPageSchema(faq)];
     <div class="wrap prose">
       <ol style="list-style: none; padding: 0; display: grid; gap: 1rem;">
         {ranked.map((c, i) => (
-          <li class="card" style="display: flex; gap: 1rem; align-items: baseline;">
-            <span style="font-weight: 800; font-size: 1.3rem; color: var(--color-primary);">#{i + 1}</span>
-            <div>
-              <h3><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a>{c.rating && <span style="color: var(--color-muted); font-weight: 400;"> &mdash; {c.rating.toFixed(1)}/5</span>}</h3>
-              <p>{c.summary}</p>
+          <li class={`rank-row fade-in-up ${i < 3 ? `rank-${i + 1}` : ''}`}>
+            <span class="rank-number">{i + 1}</span>
+            <BrandAvatar name={c.name} size={44} />
+            <div style="flex: 1;">
+              <h3 style="margin: 0 0 0.2rem;"><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a></h3>
+              <p style="margin: 0; color: var(--color-muted); font-size: 0.92rem;">{c.summary}</p>
             </div>
+            {c.rating && <StarRating rating={c.rating} size={16} />}
           </li>
         ))}
       </ol>
@@ -84,7 +87,7 @@ const schema = [faqPageSchema(faq)];
             {ranked.map((c) => (
               <tr>
                 <td><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a></td>
-                <td>{c.rating ? `${c.rating.toFixed(1)}/5` : 'Review in progress'}</td>
+                <td>{c.rating ? <StarRating rating={c.rating} size={14} /> : 'Review in progress'}</td>
                 <td>{truncate(c.bonusOffer) ?? 'TBD'}</td>
                 <td>{c.redemptionSpeed ? truncate(c.redemptionSpeed.split('.')[0] + '.') : 'TBD'}</td>
               </tr>
