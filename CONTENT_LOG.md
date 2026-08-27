@@ -32,6 +32,12 @@ gives us a real trail for the "sustained weekly cadence for 4+ consecutive weeks
 - Refresh: `/about/` (named reviewer, real contact)
 - Refresh: all 7 casino reviews (byline + hands-on-verification status added)
 
+## 2026-08-27 — Phase 9, second guide batch
+
+- New: `/guides/what-is-a-gold-coin/` (companion to the existing Sweeps Coin guide)
+- New: `/guides/sweepstakes-casino-minimum-age/`
+- New: `/guides/how-to-claim-a-lottery-prize/`
+
 ---
 
 <!--
