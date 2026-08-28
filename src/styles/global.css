@@ -706,6 +706,53 @@ table.comparison-table thead th {
   color: #3a2311;
 }
 
+/* ---------- FAQ accordion (native <details>, zero JS) ---------- */
+
+.faq-accordion {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item .chevron {
+  flex-shrink: 0;
+  color: var(--color-muted);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+  color: var(--color-muted);
+}
+
 .disclaimer-banner {
   background: var(--color-accent-dark);
   background: color-mix(in srgb, var(--color-accent) 14%, var(--color-bg));

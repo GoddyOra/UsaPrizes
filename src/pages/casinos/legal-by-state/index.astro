@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
 import { faqPageSchema } from '../../../lib/schema';
 
 // Sourced from multiple independent listings, cross-checked where possible — see the
@@ -138,12 +139,7 @@ const schema = [faqPageSchema(faq)];
       </ul>
 
       <h2>FAQ</h2>
-      {faq.map((item) => (
-        <>
-          <h3>{item.question}</h3>
-          <p>{item.answer}</p>
-        </>
-      ))}
+      <FaqAccordion items={faq} />
 
       <p class="updated">Page last updated: 2026-08-26</p>
 

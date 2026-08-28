@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import StarRating from '../../../components/StarRating.astro';
 import BrandAvatar from '../../../components/BrandAvatar.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
 import casinos from '../../../data/casinos.json';
 import { reviewSchema, faqPageSchema } from '../../../lib/schema';
 
@@ -104,12 +105,7 @@ const schema = casino.pros
           </ul>
 
           <h2>FAQ</h2>
-          {casino.faq.map((item) => (
-            <>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </>
-          ))}
+          <FaqAccordion items={casino.faq} />
 
           <p class="updated">Review last updated: {casino.reviewLastUpdated}</p>
 
