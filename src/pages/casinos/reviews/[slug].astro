@@ -46,7 +46,7 @@ const schema = casino.pros
       <p class="eyebrow">Casino Reviews</p>
       <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
         {casino.pros && <BrandAvatar name={casino.name} size={52} />}
-        <h1 style="margin: 0;">{casino.name} review</h1>
+        <h1 style="margin: 0; min-width: 0;">{casino.name} review</h1>
       </div>
       <p>{casino.summary}</p>
     </div>

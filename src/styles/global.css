@@ -74,13 +74,20 @@ html {
   border: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -233,6 +240,20 @@ main {
   color: var(--color-muted);
   font-size: 1.15rem;
   max-width: 60ch;
+}
+
+@media (max-width: 540px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero p {
+    font-size: 1.02rem;
+  }
+
+  .stat-row {
+    gap: 1.5rem;
+  }
 }
 
 .stat-row {
@@ -637,6 +658,18 @@ table.comparison-table thead th {
   background: var(--color-bg);
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Flex items default to min-width:auto, which stops long text from shrinking below its
+   content width and forces the whole row (and page) to overflow horizontally. */
+.rank-row > div {
+  min-width: 0;
+}
+
+.rank-row .rank-number,
+.rank-row .brand-avatar,
+.rank-row .star-rating {
+  flex-shrink: 0;
 }
 
 .rank-row:hover {
