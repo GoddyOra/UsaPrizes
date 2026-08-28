@@ -13,7 +13,8 @@ export async function getStaticPaths() {
 }
 
 const { guide } = Astro.props;
-const { Content } = await render(guide);
+const { Content, headings } = await render(guide);
+const toc = headings.filter((h) => h.depth === 2);
 
 const schema = [
   articleSchema({
@@ -44,6 +45,17 @@ const schema = [
         Published {guide.data.publishDate.toISOString().slice(0, 10)}
         {guide.data.updatedDate && ` · Updated ${guide.data.updatedDate.toISOString().slice(0, 10)}`}
       </p>
+
+      {toc.length > 2 && (
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-title">On this page</p>
+          <ul>
+            {toc.map((h) => (
+              <li><a href={`#${h.slug}`}>{h.text}</a></li>
+            ))}
+          </ul>
+        </nav>
+      )}
 
       <Content />
 

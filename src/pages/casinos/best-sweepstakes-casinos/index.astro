@@ -64,8 +64,11 @@ const schema = [faqPageSchema(faq)];
           <li class={`rank-row fade-in-up ${i < 3 ? `rank-${i + 1}` : ''}`}>
             <span class="rank-number">{i + 1}</span>
             <BrandAvatar name={c.name} size={44} />
-            <div style="flex: 1;">
-              <h3 style="margin: 0 0 0.2rem;"><a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a></h3>
+            <div style="flex: 1; min-width: 0;">
+              <h3 style="margin: 0 0 0.3rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                <a href={`/casinos/reviews/${c.slug}/`}>{c.name}</a>
+                {c.tagline && <span class="badge badge-tagline">{c.tagline}</span>}
+              </h3>
               <p style="margin: 0; color: var(--color-muted); font-size: 0.92rem;">{c.summary}</p>
             </div>
             {c.rating && <StarRating rating={c.rating} size={16} />}

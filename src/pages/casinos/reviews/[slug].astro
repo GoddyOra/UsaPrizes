@@ -58,7 +58,10 @@ const schema = casino.pros
       {casino.pros ? (
         <>
           <div class="verdict-block fade-in-up">
-            <StarRating rating={casino.rating} size={22} />
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              <StarRating rating={casino.rating} size={22} />
+              <span class="badge badge-tagline">{casino.tagline}</span>
+            </div>
             <p>{casino.verdict}</p>
             <p class="byline">
               Reviewed by <a href="/editorial-policy/#reviewer">Mark Ora</a>, USA Prizes founder &mdash;
