@@ -59,3 +59,9 @@ idea of what a jackpot win might mean at tax time, see our
 If nobody matches all six numbers, the jackpot rolls over and grows for the next drawing — see
 our [guide to what happens when nobody wins the jackpot](/guides/what-happens-if-no-one-wins-the-jackpot/)
 for how that process works.
+
+## How big can it actually get?
+
+For a sense of scale, see our rundown of the
+[biggest Powerball and Mega Millions jackpots ever won](/guides/biggest-lottery-jackpots-ever-won/) —
+including what the winners who went public actually chose to do with the payout decision.

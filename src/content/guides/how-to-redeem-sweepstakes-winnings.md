@@ -22,7 +22,9 @@ casino, even though the exact numbers and timing vary quite a bit by brand.
 3. **Clear the playthrough requirement.** You generally need to have played through your Sweeps
    Coins at least once (a "1x playthrough" is common) rather than just holding them.
 4. **Verify your identity.** Expect to submit a photo ID the first time you redeem — this is
-   standard across the industry and adds a delay on your very first request specifically.
+   standard across the industry and adds a delay on your very first request specifically. See our
+   [KYC verification guide](/guides/sweepstakes-casino-kyc-verification/) for exactly what's
+   involved and how to avoid the most common delays.
 5. **Choose a redemption method.** Options and speed vary a lot by operator — see below.
 6. **Wait for processing.** Anywhere from near-instant to several business days, again depending
    on the operator and method chosen.

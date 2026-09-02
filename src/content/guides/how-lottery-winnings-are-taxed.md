@@ -34,7 +34,8 @@ On top of federal tax, most states also tax lottery winnings, at rates that vary
 state — a handful of states don't tax lottery winnings at all, while others tax them at their
 standard state income tax rate. Your state's specific rules aren't reflected in the federal
 withholding taken out automatically, so factor state tax in separately when estimating what
-you'll actually owe.
+you'll actually owe. See our full [lottery taxes by state](/guides/lottery-taxes-by-state/)
+breakdown for exactly where your state falls.
 
 ## Lump sum vs. annuity
 

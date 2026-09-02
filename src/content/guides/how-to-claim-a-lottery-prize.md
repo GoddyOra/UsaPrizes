@@ -32,19 +32,23 @@ that's easy to get wrong by guessing.
 
 ## Can you stay anonymous?
 
-It depends entirely on where the ticket was sold — not where you live. As of 2026, roughly half
-of US states allow jackpot winners some form of anonymity, commonly including Delaware, Kansas,
-Maryland, Mississippi, Missouri, Montana, New Jersey, North Dakota, South Carolina, and Wyoming,
-though the exact list and the mechanism (some states allow claiming through a trust or LLC rather
-than full personal anonymity) changes over time. If anonymity matters to you, this is one of the
-first things worth confirming with an attorney before you claim — not after.
+It depends entirely on where the ticket was sold — not where you live. As of 2026, roughly a
+third to half of US states allow jackpot winners some form of anonymity, commonly including
+Delaware, Kansas, Maryland, Missouri, Montana, New Jersey, North Dakota, South Carolina, and
+Wyoming, though the exact list and the mechanism (some states allow claiming through a trust or
+LLC rather than full personal anonymity) changes over time and sources don't fully agree past
+that core group. See our full [state-by-state anonymity guide](/guides/lottery-winner-anonymity-by-state/)
+for the complete breakdown. If anonymity matters to you, this is one of the first things worth
+confirming with an attorney before you claim — not after.
 
 ## Lump sum vs. annuity
 
 Most major jackpots offer a choice: a smaller lump-sum cash payout now, or the full advertised
 jackpot paid out over roughly three decades as an annuity. This has real tax implications — see
 our [lottery winnings tax guide](/guides/how-lottery-winnings-are-taxed/) — and isn't a decision
-to make on the spot at the claims office. Get professional advice first.
+to make on the spot at the claims office. Get professional advice first. See our full
+[cash option vs. annuity guide](/guides/lottery-cash-option-vs-annuity/) for how to think through
+that specific tradeoff.
 
 ## Who to talk to before you claim
 

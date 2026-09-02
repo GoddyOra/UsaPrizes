@@ -41,6 +41,10 @@
       {
         "question": "How long does it take to redeem winnings at Chumba?",
         "answer": "It depends on the method you choose. The prepaid Mastercard option is close to instant, gift cards take about a day, and bank-based methods can take several business days, with an extra verification step on your first redemption."
+      },
+      {
+        "question": "How does Chumba compare to Pulsz?",
+        "answer": "Both keep a similar Gold Coin / Sweeps Coin structure, but Chumba has a longer operating history and a bigger slot library, while Pulsz leans on a simpler model and frequent promo codes. See our <a href=\"/guides/chumba-vs-pulsz/\">full Chumba vs. Pulsz comparison</a> for a side-by-side breakdown."
       }
     ],
     "reviewLastUpdated": "2026-08-26"
@@ -85,6 +89,10 @@
       {
         "question": "How long does it take to redeem winnings at Pulsz?",
         "answer": "Typically up to about 5 days, though bank-based redemption methods can take longer. You'll need at least 10 eligible Sweeps Coins, a completed 1x playthrough, and identity verification first."
+      },
+      {
+        "question": "How does Pulsz compare to Chumba?",
+        "answer": "Pulsz keeps its model simpler and leans on frequent promo codes for bigger bonuses, while Chumba has a longer track record and a larger slot library. See our <a href=\"/guides/chumba-vs-pulsz/\">full Chumba vs. Pulsz comparison</a> for the full breakdown."
       }
     ],
     "reviewLastUpdated": "2026-08-26"
@@ -130,6 +138,10 @@
       {
         "question": "How long does it take to redeem winnings at WOW Vegas?",
         "answer": "Gift cards typically process within about 48 hours; cash prize redemptions can take up to 5 business days, and Sweeps Coins need a 1x playthrough first."
+      },
+      {
+        "question": "Why did WOW Vegas ask me to verify my identity?",
+        "answer": "Identity verification (KYC) is standard across every sweepstakes casino before a first redemption, not specific to WOW Vegas — it's how operators confirm you're a real, eligible player. See our <a href=\"/guides/sweepstakes-casino-kyc-verification/\">guide to sweepstakes casino verification</a> for what to expect and how to avoid delays."
       }
     ],
     "reviewLastUpdated": "2026-08-26"
@@ -214,6 +226,10 @@
       {
         "question": "How long does it take to redeem winnings at Stake.us?",
         "answer": "Often same-day when redeeming via cryptocurrency, though actual speed depends on network conditions. You'll need a 3x playthrough and a minimum of 100 Stake Cash first."
+      },
+      {
+        "question": "Does Stake.us require identity verification?",
+        "answer": "Yes — like every sweepstakes casino, Stake.us requires identity verification before your first redemption. See our <a href=\"/guides/sweepstakes-casino-kyc-verification/\">guide to sweepstakes casino verification</a> for what documents to expect and how to avoid delays."
       }
     ],
     "reviewLastUpdated": "2026-08-26"
@@ -256,6 +272,10 @@
       {
         "question": "How long does it take to redeem winnings at LuckyLand?",
         "answer": "Gold Coins are instant. Sweeps Coins need phone/address verification, a 1x playthrough, and a 50 SC minimum balance before you can request redemption."
+      },
+      {
+        "question": "What does LuckyLand's phone and address verification involve?",
+        "answer": "It's the same identity-verification step every sweepstakes casino requires before a first redemption, just triggered a bit earlier at LuckyLand. See our <a href=\"/guides/sweepstakes-casino-kyc-verification/\">guide to sweepstakes casino verification</a> for what to expect and how to avoid delays."
       }
     ],
     "reviewLastUpdated": "2026-08-26"
@@ -300,5 +320,50 @@
       }
     ],
     "reviewLastUpdated": "2026-08-26"
+  },
+  {
+    "slug": "crown-coins",
+    "name": "Crown Coins Casino",
+    "summary": "A fast-growing sweepstakes casino with a large game library and a strong welcome bonus.",
+    "officialUrl": "https://crowncoinscasino.com/",
+    "rating": 4.0,
+    "tagline": "Fastest-Growing",
+    "handsOnVerified": false,
+    "verdict": "Crown Coins Casino has climbed quickly since launching in 2023, backed by a large 500+ game library, an unusually strong first-purchase match, and a highly rated mobile app. It's newer than Chumba or Pulsz, so it hasn't built the same operating history, and a few operational details are thinner in public reporting than for more established brands.",
+    "pros": [
+      "Large no-purchase welcome bonus: 100,000 Crown Coins + 2 Sweeps Coins on signup",
+      "500+ games, one of the larger libraries among sweepstakes casinos",
+      "Highly rated mobile app (4.8/5 from 60,000+ App Store reviews)",
+      "Generous first-purchase match, up to 1,500,000 Crown Coins + 75 Sweeps Coins"
+    ],
+    "cons": [
+      "Shorter operating history than established brands like Chumba or Pulsz",
+      "Excluded in a fairly long list of states, with Oklahoma set to join the exclusion list in November 2026",
+      "Several similar-looking domains show up in search results — double-check you're on the actual official site before entering any payment details",
+      "Payment methods beyond major cards, Apple Pay, and Skrill aren't fully detailed in public reporting"
+    ],
+    "bonusOffer": "100,000 Crown Coins + 2 Sweeps Coins on signup, no purchase necessary — a first-purchase package offers up to 1,500,000 Crown Coins + 75 Sweeps Coins with a 200% match",
+    "promoCode": null,
+    "redemptionSpeed": "Sweeps Coins carry a 1x playthrough requirement, with a 50 SC minimum balance before you can request redemption. You'll also need to add a phone number, physical address, and a redemption method (bank transfer or Skrill). Specific processing-time data wasn't consistently reported at time of writing — confirm current turnaround directly with Crown Coins.",
+    "paymentMethods": [
+      "Visa / Mastercard / American Express / Discover",
+      "Apple Pay",
+      "Skrill"
+    ],
+    "faq": [
+      {
+        "question": "Is Crown Coins Casino legit?",
+        "answer": "Yes — it's a real, operating sweepstakes casino that's been running since 2023 and has grown quickly, with a highly rated mobile app and a 500+ game library. As with any sweepstakes casino, confirm you're on the actual official site before signing up or entering payment details, since several similar-looking domains appear in search results. See our <a href=\"/guides/new-sweepstakes-casinos-2026/\">guide to vetting new sweepstakes casinos</a> for the general checklist we use."
+      },
+      {
+        "question": "Is Crown Coins Casino legal in my state?",
+        "answer": "Crown Coins operates as a sweepstakes casino, legally distinct from real-money gambling, and is unavailable in a number of states. Check our <a href=\"/casinos/legal-by-state/\">legal-by-state page</a> for the current list before signing up."
+      },
+      {
+        "question": "Does Crown Coins Casino have a promo code?",
+        "answer": "No. The no-purchase welcome bonus (100,000 Crown Coins + 2 Sweeps Coins) is credited automatically on signup. The larger first-purchase match is an offer, not a code, applied when you make your first Gold-Coin-style purchase."
+      }
+    ],
+    "reviewLastUpdated": "2026-09-02"
   }
 ]

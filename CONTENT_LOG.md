@@ -38,6 +38,28 @@ gives us a real trail for the "sustained weekly cadence for 4+ consecutive weeks
 - New: `/guides/sweepstakes-casino-minimum-age/`
 - New: `/guides/how-to-claim-a-lottery-prize/`
 
+## 2026-09-02 — Article Batch 2 (see docs/ARTICLE_BATCH_2_PLAN.md)
+
+- New: `/casinos/reviews/crown-coins/` (8th brand — added to `casinos.json`, `legal-by-state/`)
+- New: `/guides/chumba-vs-pulsz/`
+- New: `/guides/sweepstakes-casino-kyc-verification/`
+- New: `/guides/lottery-taxes-by-state/`
+- New: `/guides/lottery-winner-anonymity-by-state/`
+- New: `/guides/biggest-lottery-jackpots-ever-won/`
+- New: `/guides/lottery-cash-option-vs-annuity/`
+- New: `/guides/best-sweepstakes-casinos-slots-vs-table-games/`
+- New: `/guides/sweepstakes-casino-vip-programs/`
+- New: `/guides/new-sweepstakes-casinos-2026/`
+- Refresh: `/guides/how-to-check-powerball-numbers/` (link to biggest jackpots)
+- Refresh: `/guides/how-lottery-winnings-are-taxed/` (link to tax by state)
+- Refresh: `/guides/how-to-claim-a-lottery-prize/` (links to anonymity + cash vs. annuity)
+- Refresh: `/guides/how-to-redeem-sweepstakes-winnings/` (link to KYC guide)
+- Refresh: `/guides/sweepstakes-casino-no-deposit-bonuses/` (link to VIP programs)
+- Refresh: `/casinos/best-sweepstakes-casinos/` (new FAQ item, slots vs. table games link)
+- Refresh: `/casinos/` (new Guides section)
+- Refresh: FAQ entries on Chumba, Pulsz, WOW Vegas, Stake.us, LuckyLand reviews (cross-links)
+- Template: guides now support an optional `faq` field (FaqAccordion + FAQPage schema); `FaqAccordion` renders answers as HTML to allow inline links
+
 ---
 
 <!--

@@ -47,3 +47,10 @@ translate to the same real value, it's worth comparing more than just the raw co
 [full comparison table](/casinos/best-sweepstakes-casinos/) lines up each brand's baseline
 no-code welcome offer alongside redemption speed, so you can weigh the whole package rather than
 just the biggest-looking number.
+
+## Beyond the welcome bonus
+
+A no-deposit welcome bonus is a one-time thing — several operators also run ongoing loyalty perks
+for regular players after that. See our
+[sweepstakes casino VIP programs guide](/guides/sweepstakes-casino-vip-programs/) for how those
+work and what to realistically expect.

@@ -2,7 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { articleSchema } from '../../lib/schema';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import { articleSchema, faqPageSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -23,6 +24,7 @@ const schema = [
     datePublished: guide.data.publishDate.toISOString(),
     dateModified: (guide.data.updatedDate ?? guide.data.publishDate).toISOString(),
   }),
+  ...(guide.data.faq.length > 0 ? [faqPageSchema(guide.data.faq)] : []),
 ];
 ---
 
@@ -58,6 +60,13 @@ const schema = [
       )}
 
       <Content />
+
+      {guide.data.faq.length > 0 && (
+        <>
+          <h2>FAQ</h2>
+          <FaqAccordion items={guide.data.faq} />
+        </>
+      )}
 
       <div class="disclaimer-banner">
         This guide is for general informational purposes only and isn't legal, financial, or tax
