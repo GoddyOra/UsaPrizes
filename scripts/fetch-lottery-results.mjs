@@ -41,6 +41,12 @@ const GAMES = [
     jsonPath: new URL('../src/data/lottery/powerball.json', import.meta.url),
     displayName: 'Powerball',
     specialBallName: 'Powerball',
+    // This dataset has no dedicated special-ball field — it's folded into "winning_numbers"
+    // as the final entry (confirmed live). Explicit flag rather than an implicit fallback, so
+    // a future game with a genuinely missing/misnamed field fails loudly instead of silently
+    // being parsed as if it were Powerball-shaped (see the Millionaire for Life comment below
+    // for why that matters — it's exactly the bug that shipped before this was tightened up).
+    foldedSpecialBall: true,
     // 0 = Sunday ... 6 = Saturday. Powerball draws Mon/Wed/Sat.
     drawDaysOfWeek: [1, 3, 6],
   },
@@ -53,7 +59,7 @@ const GAMES = [
     specialBallName: 'Mega Ball',
     // Unlike Powerball, this dataset reports the Mega Ball as its own field rather than
     // folding it into "winning_numbers" (confirmed via a live Actions run on 2026-08-26).
-    specialBallField: 'mega_ball',
+    specialBallFieldCandidates: ['mega_ball'],
     // Mega Millions draws Tue/Fri.
     drawDaysOfWeek: [2, 5],
   },
@@ -63,11 +69,16 @@ const GAMES = [
     resourceId: 'a4w9-a3tp',
     jsonPath: new URL('../src/data/lottery/millionaire-for-life.json', import.meta.url),
     displayName: 'Millionaire for Life',
-    specialBallName: 'Million Ball',
-    // Not independently confirmed which field the bonus ball lands in — falls back to the
-    // last entry in winning_numbers (the Powerball-style pattern) if no dedicated field is
-    // found. Fixed top prize, not a rolling jackpot — see fixedTopPrize below.
-    specialBallField: 'million_ball',
+    // Official name is "Millionaire Ball" (5 main numbers 1-58 + 1 Millionaire Ball 1-5) — a
+    // real dataset field, not folded into winning_numbers like Powerball. The first live run
+    // (2026-09-03) with a guessed field name of "million_ball" silently mis-parsed a genuine
+    // 5th main number as the special ball instead of throwing, because the old fallback logic
+    // treated "field not found" as "must be Powerball-shaped." Verified against lotteryusa.com
+    // for the Sept 2 2026 draw (7, 23, 43, 46, 53, MB: 3) — our own output had dropped the real
+    // MB value entirely. Trying several likely Socrata field-name conversions of "Millionaire
+    // Ball" now; if none match, this throws instead of guessing.
+    specialBallName: 'Millionaire Ball',
+    specialBallFieldCandidates: ['millionaire_ball', 'million_ball', 'mb'],
     // Drawn every night.
     drawDaysOfWeek: [0, 1, 2, 3, 4, 5, 6],
     fixedTopPrize: '$1,000,000 a year for life',
@@ -143,27 +154,38 @@ function parseWinningNumbers(row, game) {
 
   const numbers = String(winningNumbersRaw).trim().split(/\s+/).map(Number);
 
+  if (numbers.some(Number.isNaN)) {
+    console.error('Unexpected winning_numbers format — raw row:', JSON.stringify(row, null, 2));
+    throw new Error(`Could not parse "winning_numbers": "${winningNumbersRaw}"`);
+  }
+
   let special;
-  const specialField = game.specialBallField ?? game.bonusField;
-  if (specialField && row[specialField] !== undefined) {
-    special = Number(row[specialField]);
+  const candidates = game.specialBallFieldCandidates ?? (game.bonusField ? [game.bonusField] : []);
+  const matchedField = candidates.find((f) => row[f] !== undefined);
+
+  if (matchedField) {
+    special = Number(row[matchedField]);
     if (Number.isNaN(special)) {
       console.error('Unexpected row shape from Socrata — raw row:', JSON.stringify(row, null, 2));
-      throw new Error(`Expected numeric "${specialField}" field`);
+      throw new Error(`Expected numeric "${matchedField}" field`);
     }
-  } else if (game.shape === 'jackpot') {
-    // No dedicated field — the special ball is the last entry in winning_numbers (the
-    // Powerball-style pattern).
+  } else if (game.foldedSpecialBall) {
+    // Confirmed (not guessed) for this game: no dedicated field — the special ball is the
+    // last entry in winning_numbers.
     if (numbers.length < 2) {
       console.error('Unexpected winning_numbers format — raw row:', JSON.stringify(row, null, 2));
       throw new Error(`Could not parse "winning_numbers": "${winningNumbersRaw}"`);
     }
     special = numbers.pop();
-  }
-
-  if (numbers.some(Number.isNaN)) {
-    console.error('Unexpected winning_numbers format — raw row:', JSON.stringify(row, null, 2));
-    throw new Error(`Could not parse "winning_numbers": "${winningNumbersRaw}"`);
+  } else if (candidates.length > 0) {
+    // A dedicated field was expected (one of `candidates`) but none matched. Fail loudly
+    // instead of guessing — silently falling back to "must be folded into winning_numbers"
+    // here is exactly what mis-parsed Millionaire for Life's real 5th number as its special
+    // ball on the first live run.
+    console.error('Unexpected row shape from Socrata — raw row:', JSON.stringify(row, null, 2));
+    throw new Error(
+      `Expected one of these fields for the special ball: ${candidates.join(', ')} — got keys: ${Object.keys(row).join(', ')}`
+    );
   }
 
   return { numbers, special };
