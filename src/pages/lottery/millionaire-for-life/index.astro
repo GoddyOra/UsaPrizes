@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import results from '../../../data/lottery/millionaire-for-life.json';
+
+const title = results.drawDate
+  ? `Millionaire for Life Winning Numbers — ${results.drawDate} Results`
+  : 'Millionaire for Life Winning Numbers & Results';
+---
+
+<BaseLayout
+  title={title}
+  description="Latest Millionaire for Life winning numbers and next drawing date. A multi-state nightly game paying a fixed $1,000,000-a-year-for-life top prize."
+>
+  <section class="hero">
+    <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Lottery Results', href: '/lottery/' },
+        { name: 'Millionaire for Life', href: '/lottery/millionaire-for-life/' },
+      ]} />
+      <p class="eyebrow">Lottery &rsaquo; Millionaire for Life</p>
+      <h1>Millionaire for Life results</h1>
+      <p>
+        Drawings are held every night. Millionaire for Life launched February 22, 2026 as the
+        multi-state replacement for Cash4Life and Lucky for Life, paying a fixed top prize rather
+        than a rolling jackpot.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      {results.drawDate ? (
+        <div class="card" style="max-width: 480px;">
+          <h3>Draw date: {results.drawDate}</h3>
+          <p>Numbers: {results.numbers.join(' - ')} | {results.specialBallName}: {results.specialBall}</p>
+          {results.fixedTopPrize && <p>Top prize: {results.fixedTopPrize}</p>}
+          <p>Next drawing: {results.nextDrawDate}</p>
+          {results.lastUpdated && (
+            <p class="updated">Last updated: {new Date(results.lastUpdated).toUTCString()}</p>
+          )}
+        </div>
+      ) : (
+        <p>Results are loading. The automated pipeline will populate this page after the next drawing.</p>
+      )}
+
+      <div class="disclaimer-banner">
+        USAPrizes.com is not affiliated with the Multi-State Lottery Association or any state
+        lottery. Numbers are sourced from public data feeds and provided for informational
+        purposes only &mdash; always verify against your official state lottery before claiming
+        a prize.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import results from '../../../data/lottery/numbers.json';
+
+const title = results.drawDate
+  ? `NY Numbers Winning Numbers — ${results.drawDate} Midday & Evening Results`
+  : 'NY Numbers Winning Numbers & Results';
+---
+
+<BaseLayout
+  title={title}
+  description="Latest New York Numbers (Pick 3) winning numbers for both the midday and evening drawings."
+>
+  <section class="hero">
+    <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Lottery Results', href: '/lottery/' },
+        { name: 'Numbers', href: '/lottery/numbers/' },
+      ]} />
+      <p class="eyebrow">Lottery &rsaquo; Numbers</p>
+      <h1>NY Numbers results</h1>
+      <p>New York's Pick 3 game, drawn twice every day &mdash; midday and evening.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      {results.drawDate ? (
+        <div class="card" style="max-width: 480px;">
+          <h3>Draw date: {results.drawDate}</h3>
+          {results.midday && <p>Midday: {results.midday.join(' - ')}</p>}
+          {results.evening && <p>Evening: {results.evening.join(' - ')}</p>}
+          {results.lastUpdated && (
+            <p class="updated">Last updated: {new Date(results.lastUpdated).toUTCString()}</p>
+          )}
+        </div>
+      ) : (
+        <p>Results are loading. The automated pipeline will populate this page after the next drawing.</p>
+      )}
+
+      <div class="disclaimer-banner">
+        USAPrizes.com is not affiliated with the New York Lottery. Numbers are sourced from
+        public data feeds and provided for informational purposes only &mdash; always verify
+        against the official New York Lottery before claiming a prize.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

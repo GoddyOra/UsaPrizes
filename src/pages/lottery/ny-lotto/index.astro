@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import results from '../../../data/lottery/ny-lotto.json';
+
+const title = results.drawDate
+  ? `NY Lotto Winning Numbers — ${results.drawDate} Results & Next Jackpot`
+  : 'NY Lotto Winning Numbers & Results';
+---
+
+<BaseLayout
+  title={title}
+  description="Latest New York Lotto winning numbers, bonus ball, and next drawing date."
+>
+  <section class="hero">
+    <div class="wrap">
+      <Breadcrumbs items={[
+        { name: 'Lottery Results', href: '/lottery/' },
+        { name: 'NY Lotto', href: '/lottery/ny-lotto/' },
+      ]} />
+      <p class="eyebrow">Lottery &rsaquo; NY Lotto</p>
+      <h1>NY Lotto results</h1>
+      <p>Drawings are held every Wednesday and Saturday at 8:15 p.m. ET. A 6/59 game — pick six numbers, no separate ball required to win the jackpot.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      {results.drawDate ? (
+        <div class="card" style="max-width: 480px;">
+          <h3>Draw date: {results.drawDate}</h3>
+          <p>Numbers: {results.numbers.join(' - ')}</p>
+          {results.bonus && <p>Bonus ball: {results.bonus} <span style="color: var(--color-muted); font-size: 0.85rem;">(used for second-prize tiers only — not required to win the jackpot)</span></p>}
+          <p>Next drawing: {results.nextDrawDate}</p>
+          {results.lastUpdated && (
+            <p class="updated">Last updated: {new Date(results.lastUpdated).toUTCString()}</p>
+          )}
+        </div>
+      ) : (
+        <p>Results are loading. The automated pipeline will populate this page after the next drawing.</p>
+      )}
+
+      <div class="disclaimer-banner">
+        USAPrizes.com is not affiliated with the New York Lottery. Numbers are sourced from
+        public data feeds and provided for informational purposes only &mdash; always verify
+        against the official New York Lottery before claiming a prize.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

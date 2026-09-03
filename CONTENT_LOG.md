@@ -60,6 +60,19 @@ gives us a real trail for the "sustained weekly cadence for 4+ consecutive weeks
 - Refresh: FAQ entries on Chumba, Pulsz, WOW Vegas, Stake.us, LuckyLand reviews (cross-links)
 - Template: guides now support an optional `faq` field (FaqAccordion + FAQPage schema); `FaqAccordion` renders answers as HTML to allow inline links
 
+## 2026-09-03 — Lottery feed expansion (2 → 6 games)
+
+- New: `/lottery/millionaire-for-life/` (multi-state, replaced the retired Cash4Life Feb 2026)
+- New: `/lottery/ny-lotto/`
+- New: `/lottery/numbers/` (midday + evening)
+- New: `/lottery/win4/` (midday + evening)
+- Refresh: `/lottery/` (split into Multi-state games / New York games sections)
+- Refresh: `/` (live-feed stat count now derived from `src/lib/lottery-games.ts`, not hardcoded)
+- Pipeline: `scripts/fetch-lottery-results.mjs` restructured to handle 3 dataset shapes (rolling
+  jackpot, NY Lotto's bonus ball, twice-daily pick-3/pick-4) — see script header for resource IDs
+  and the note on which field names still need live-run verification.
+- `.github/workflows/lottery-results.yml` IndexNow step extended for the 4 new result files.
+
 ---
 
 <!--

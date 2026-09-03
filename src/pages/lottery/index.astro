@@ -1,11 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-
-const games = [
-  { slug: 'powerball', name: 'Powerball', desc: 'Drawings every Monday, Wednesday, and Saturday.' },
-  { slug: 'mega-millions', name: 'Mega Millions', desc: 'Drawings every Tuesday and Friday.' },
-];
+import { multiStateGames, nyGames } from '../../lib/lottery-games';
 ---
 
 <BaseLayout
@@ -25,7 +21,7 @@ const games = [
     <div class="wrap">
       <h2>Multi-state games</h2>
       <div class="grid-cards">
-        {games.map((g) => (
+        {multiStateGames.map((g) => (
           <a class="card" href={`/lottery/${g.slug}/`}>
             <h3>{g.name}</h3>
             <p>{g.desc}</p>
@@ -33,8 +29,18 @@ const games = [
         ))}
       </div>
 
-      <h2>State lotteries</h2>
-      <p>Coming soon: Texas, Florida, New York, Pennsylvania, Ohio, Georgia, North Carolina, Michigan, New Jersey, and more.</p>
+      <h2>New York games</h2>
+      <div class="grid-cards">
+        {nyGames.map((g) => (
+          <a class="card" href={`/lottery/${g.slug}/`}>
+            <h3>{g.name}</h3>
+            <p>{g.desc}</p>
+          </a>
+        ))}
+      </div>
+
+      <h2>Other states</h2>
+      <p>Coming soon: Texas, Florida, Pennsylvania, Ohio, Georgia, North Carolina, Michigan, New Jersey, and more.</p>
     </div>
   </section>
 </BaseLayout>

@@ -57,6 +57,10 @@ jobs:
             case "$f" in
               *powerball.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/powerball/"]') ;;
               *mega-millions.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/mega-millions/"]') ;;
+              *millionaire-for-life.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/millionaire-for-life/"]') ;;
+              *ny-lotto.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/ny-lotto/"]') ;;
+              *numbers.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/numbers/"]') ;;
+              *win4.json) URLS=$(echo "$URLS" | jq '. + ["https://usaprizes.com/lottery/win4/"]') ;;
             esac
           done
           if [ "$URLS" != "[]" ]; then
