@@ -1,8 +1,15 @@
 {
   "game": "NY Lotto",
-  "drawDate": null,
-  "numbers": [],
-  "bonus": null,
-  "nextDrawDate": null,
-  "lastUpdated": null
+  "drawDate": "2026-09-02",
+  "numbers": [
+    1,
+    13,
+    47,
+    50,
+    54,
+    59
+  ],
+  "bonus": 25,
+  "nextDrawDate": "2026-09-05",
+  "lastUpdated": "2026-09-03T11:57:58.867Z"
 }
