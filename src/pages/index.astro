@@ -42,6 +42,14 @@ const latestGuides = [...guides]
     <div class="wrap">
       <p class="eyebrow">Lottery</p>
       <h2>Latest draw results</h2>
+      <p>
+        Powerball and Mega Millions results come from an automated pipeline that pulls directly
+        from official public lottery data feeds and updates within about an hour of each real
+        drawing &mdash; not a manual process someone might forget to run. Beyond the two big
+        multi-state games, we also track New York's own Lotto, Numbers, and Win 4 drawings on
+        their own schedules, for six live results feeds in total. Every result page shows exactly
+        when it was last updated, so you're never guessing whether the numbers are current.
+      </p>
       <div class="grid-cards">
         <a class="card" href="/lottery/powerball/">
           <h3>Powerball</h3>
@@ -63,6 +71,16 @@ const latestGuides = [...guides]
     <div class="wrap">
       <p class="eyebrow">Casino Reviews</p>
       <h2>Sweepstakes casinos, reviewed honestly</h2>
+      <p>
+        Every brand here goes through the same process: real research into welcome bonuses,
+        redemption speed, payment methods, and state availability, with anything we couldn't
+        independently confirm flagged as such instead of quietly assumed. Ratings are ours alone
+        and nothing here is pay-to-rank &mdash; a higher-paying affiliate deal never buys a better
+        score. Each review carries a visible last-updated date and a clear note on whether it's
+        backed by hands-on account testing yet or still desk research, so you know exactly how
+        much to weigh it. Our full <a href="/editorial-policy/">editorial policy</a> explains the
+        process in detail.
+      </p>
 
       <div style="display: grid; gap: 0.85rem; margin-top: 1.5rem;">
         {topCasinos.map((c, i) => (
@@ -102,6 +120,14 @@ const latestGuides = [...guides]
     <div class="wrap">
       <p class="eyebrow">Guides</p>
       <h2>Learn the basics</h2>
+      <p>
+        Sweepstakes casinos run on a two-currency model &mdash; Gold Coins for free play,
+        separately awarded Sweeps Coins that are actually redeemable &mdash; that trips up a lot
+        of first-time players. Our guides walk through how that model works, what slows down a
+        redemption, and the practical questions people run into most. On the lottery side, we
+        cover everything from checking whether a ticket actually won to what a jackpot payout
+        means at tax time, so you're not left guessing at the fine print.
+      </p>
       <div class="grid-cards">
         {latestGuides.map((g) => (
           <a class="card" href={`/guides/${g.id}/`}>
