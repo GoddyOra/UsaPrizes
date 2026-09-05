@@ -73,12 +73,12 @@ const GAMES = [
     // real dataset field, not folded into winning_numbers like Powerball. The first live run
     // (2026-09-03) with a guessed field name of "million_ball" silently mis-parsed a genuine
     // 5th main number as the special ball instead of throwing, because the old fallback logic
-    // treated "field not found" as "must be Powerball-shaped." Verified against lotteryusa.com
-    // for the Sept 2 2026 draw (7, 23, 43, 46, 53, MB: 3) — our own output had dropped the real
-    // MB value entirely. Trying several likely Socrata field-name conversions of "Millionaire
-    // Ball" now; if none match, this throws instead of guessing.
+    // treated "field not found" as "must be Powerball-shaped." The tightened-up throw-instead-
+    // of-guess logic caught the next guess being wrong too (2026-09-04/05 runs) — confirmed via
+    // the actual raw row from a live failure: the real field is "mill_ball". Kept the other
+    // guesses as harmless extra candidates in case this ever gets renamed again.
     specialBallName: 'Millionaire Ball',
-    specialBallFieldCandidates: ['millionaire_ball', 'million_ball', 'mb'],
+    specialBallFieldCandidates: ['mill_ball', 'millionaire_ball', 'million_ball', 'mb'],
     // Drawn every night.
     drawDaysOfWeek: [0, 1, 2, 3, 4, 5, 6],
     fixedTopPrize: '$1,000,000 a year for life',

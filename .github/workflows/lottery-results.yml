@@ -31,8 +31,16 @@ jobs:
           SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
         run: node scripts/fetch-lottery-results.mjs
 
+      # if: always() matters here — each game is fetched/written independently in the script,
+      # so one game throwing (process.exitCode = 1) shouldn't discard other games that already
+      # fetched and wrote real, correct data in the same run. Without this, a single persistent
+      # per-game failure silently blocks every other game's updates from ever being committed —
+      # confirmed live on 2026-09-04/05: Mega Millions, Numbers, and Win 4 all successfully
+      # fetched fresh draws that run, but sat un-committed for two days because Millionaire for
+      # Life's parsing failure short-circuited this step before if: always() was added.
       - name: Commit and push if changed
         id: commit
+        if: always()
         run: |
           git config user.name "usaprizes-bot"
           git config user.email "actions@users.noreply.github.com"
