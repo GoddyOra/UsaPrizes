@@ -1,15 +1,15 @@
 {
   "game": "Numbers",
-  "drawDate": "2026-09-19",
+  "drawDate": "2026-09-20",
   "midday": [
     9,
-    2,
+    3,
     6
   ],
   "evening": [
-    9,
-    8,
-    0
+    6,
+    0,
+    7
   ],
-  "lastUpdated": "2026-09-20T13:22:55.407Z"
+  "lastUpdated": "2026-09-21T15:32:10.856Z"
 }
