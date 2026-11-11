@@ -10,10 +10,11 @@ import { faqPageSchema } from '../../../lib/schema';
 const ranked = [...casinos].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
 
 // Keep the comparison table scannable — full detail lives on each review's "at a glance" table.
-function truncate(text, max = 70) {
+function truncate(text: string | undefined, max = 70) {
   if (!text || text.length <= max) return text;
   const cut = text.slice(0, max);
-  return cut.slice(0, cut.lastIndexOf(' ')) + '…';
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + '…';
 }
 
 const faq = [
