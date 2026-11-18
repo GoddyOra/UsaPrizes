@@ -1,16 +1,16 @@
 {
   "game": "Mega Millions",
-  "drawDate": "2026-11-13",
+  "drawDate": "2026-11-17",
   "numbers": [
+    3,
     10,
-    22,
-    33,
-    49,
-    57
+    19,
+    28,
+    33
   ],
-  "specialBall": 18,
+  "specialBall": 21,
   "specialBallName": "Mega Ball",
   "jackpot": null,
-  "nextDrawDate": "2026-11-17",
-  "lastUpdated": "2026-11-14T15:26:41.690Z"
+  "nextDrawDate": "2026-11-20",
+  "lastUpdated": "2026-11-18T17:43:00.556Z"
 }
