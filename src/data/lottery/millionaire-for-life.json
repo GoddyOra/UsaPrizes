@@ -1,17 +1,17 @@
 {
   "game": "Millionaire for Life",
-  "drawDate": "2026-11-22",
+  "drawDate": "2026-11-23",
   "numbers": [
-    11,
-    12,
-    37,
-    43,
-    44
+    5,
+    8,
+    10,
+    20,
+    32
   ],
-  "specialBall": 2,
+  "specialBall": 5,
   "specialBallName": "Millionaire Ball",
   "jackpot": null,
   "fixedTopPrize": "$1,000,000 a year for life",
-  "nextDrawDate": "2026-11-24",
-  "lastUpdated": "2026-11-23T20:46:04.521Z"
+  "nextDrawDate": "2026-11-25",
+  "lastUpdated": "2026-11-24T19:50:30.898Z"
 }
